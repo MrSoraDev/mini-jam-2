@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=32 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
 [ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_b760h"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/idle_state.gd" id="3_dlctw"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/run_state.gd" id="4_nccvr"]
+[ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="6_1wpm7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdlee"]
 radius = 7.28011
@@ -181,6 +182,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 
 outlines = Array[PackedVector2Array]([PackedVector2Array(-70, 24, -70, -27, -54, -60, -1, -78, 53, -68, 73, -31, 73, 20, 50, 48, 1, 62, -38, 52)])
 source_geometry_mode = 2
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_uk3cv"]
+radius = 9.0
+
 [node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
 collision_layer = 2
 script = ExtResource("1_3i46q")
@@ -219,3 +223,15 @@ shape = SubResource("RectangleShape2D_fxtpr")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="BrotherPath"]
 navigation_polygon = SubResource("NavigationPolygon_x36pw")
+
+[node name="HerbIndicatior" type="Sprite2D" parent="."]
+modulate = Color(0.392157, 0.933333, 0.00392157, 1)
+position = Vector2(0, -13)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_1wpm7")
+
+[node name="HerbCatcher" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HerbCatcher"]
+shape = SubResource("CircleShape2D_uk3cv")
+debug_color = Color(0.275485, 0.632017, 0, 0.42)

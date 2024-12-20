@@ -7,10 +7,13 @@ var looking_down: bool = true
 
 @export var speed = 100
 @export var accel = 10
-
-
+@onready var herb_indicatior: Sprite2D = $HerbIndicatior
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	herb_indicatior.visible = true
+	print(global_position)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("call"):

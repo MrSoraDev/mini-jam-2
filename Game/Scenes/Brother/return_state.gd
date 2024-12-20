@@ -9,15 +9,17 @@ var player_position: Vector2
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	player_position = player.global_position
+	
 
 func _on_process(_delta : float) -> void:
 	pass
 
 
 func _on_physics_process(_delta : float) -> void:
-	var direction = character.global_position.direction_to(player_position) - Vector2(20,20)
-	character.velocity = direction * 30
+	player_position = player.global_position
+	var direction = character.global_position.direction_to(player_position) #
+	print(direction)
+	character.velocity = direction * 200
 	character.move_and_slide()
 
 

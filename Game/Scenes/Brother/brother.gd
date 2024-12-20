@@ -24,8 +24,6 @@ func _ready() -> void:
 	progress_bar.value = GameManager.get_brother_health()
 	
 	
-func _on_follow_timer_timeout() -> void:
-	pass # Replace with function body.
 
 func _process(delta: float) -> void:
 	progress_bar.value = GameManager.get_brother_health()

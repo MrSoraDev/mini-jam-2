@@ -29,9 +29,9 @@ func _on_enter() -> void:
 	follow_timer.start()
 	
 func _on_exit() -> void:
-	character.called = false
-	transition.emit("idle")
+	pass
 
 
 func _on_follow_timer_timeout() -> void:
-	_on_exit()
+	character.called = false
+	transition.emit("idle")

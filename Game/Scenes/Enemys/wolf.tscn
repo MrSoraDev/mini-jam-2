@@ -213,14 +213,17 @@ libraries = {
 
 [node name="Hit_box" type="Area2D" parent="."]
 collision_layer = 64
-collision_mask = 0
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box"]
 shape = SubResource("CircleShape2D_tamxh")
 disabled = true
 debug_color = Color(0.968627, 0.184314, 0, 0)
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="See_box" to="." method="_on_see_box_area_entered"]
 [connection signal="area_entered" from="Close_box" to="." method="_on_close_box_area_entered"]
 [connection signal="area_exited" from="Close_box" to="." method="_on_close_box_area_exited"]
 [connection signal="area_entered" from="Hit_box" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

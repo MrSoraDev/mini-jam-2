@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk8d2imd1kuvs"]
+[gd_scene load_steps=7 format=3 uid="uid://bk8d2imd1kuvs"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="1_hic1r"]
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_yd77j"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="2_awifx"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="4_ad1b3"]
+[ext_resource type="PackedScene" uid="uid://c045mi8spuru2" path="res://Game/Scenes/Enemys/amassador.tscn" id="5_7d25y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hohn2"]
+size = Vector2(403, 270)
 
 [node name="TestSceneYrs" type="Node2D"]
 
@@ -13,7 +17,7 @@ position = Vector2(139, 38)
 texture = ExtResource("1_yd77j")
 
 [node name="Player" parent="." instance=ExtResource("1_hic1r")]
-position = Vector2(-31, 71)
+position = Vector2(707, -81)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
@@ -23,3 +27,16 @@ position = Vector2(67, 74)
 
 [node name="Wolf" parent="." instance=ExtResource("4_ad1b3")]
 position = Vector2(178, 188)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(763.5, 273)
+shape = SubResource("RectangleShape2D_hohn2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(763.5, -328)
+shape = SubResource("RectangleShape2D_hohn2")
+
+[node name="Amassador" parent="." instance=ExtResource("5_7d25y")]
+position = Vector2(803, -32)

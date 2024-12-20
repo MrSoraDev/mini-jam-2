@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://c045mi8spuru2"]
+
+[ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_e3dws"]
+[ext_resource type="Script" path="res://Game/Scenes/Enemys/amassador.gd" id="1_p5885"]
+[ext_resource type="Script" path="res://Game/Scenes/Enemys/raycasts.gd" id="3_yulgj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxfym"]
+size = Vector2(51, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbab3"]
+size = Vector2(74, 69)
+
+[node name="Amassador" type="CharacterBody2D"]
+script = ExtResource("1_p5885")
+y_dir = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.901961, 0, 0.254902, 1)
+polygon = PackedVector2Array(-38, -19, -24, 2, -43, 11, -32, 20, -20, 21, -20, 37, -6, 23, 5, 41, 14, 24, 30, 36, 34, 20, 26, 17, 39, 5, 28, 5, 39, -13, 25, -13, 33, -26, 19, -20, 18, -40, 9, -24, 2, -39, -2, -23, -11, -37, -16, -22, -25, -35, -23, -18)
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_e3dws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_vxfym")
+
+[node name="Raycasts" type="Node2D" parent="."]
+script = ExtResource("3_yulgj")
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(0, -50)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(50, 0)
+
+[node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
+target_position = Vector2(-50, 0)
+
+[node name="Timer" type="Timer" parent="Raycasts"]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_fbab3")
+debug_color = Color(0.937255, 0.25098, 0, 0)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Raycasts/Timer" to="Raycasts" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -85,6 +85,7 @@ call={
 2d_physics/layer_6="Shield"
 2d_physics/layer_7="EnemyHitBox"
 2d_physics/layer_8="EnemyHurtBox"
+2d_physics/layer_9="seebrother"
 
 [rendering]
 

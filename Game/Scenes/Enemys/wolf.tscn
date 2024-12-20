@@ -67,7 +67,7 @@ debug_color = Color(0, 0.647059, 0.243137, 0)
 
 [node name="Close_box" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Close_box"]
 shape = SubResource("CircleShape2D_2kklj")

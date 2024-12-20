@@ -3,15 +3,29 @@ extends CharacterBody2D
 var alvo = null
 var close = false
 var up : bool = false
+var push = false
 @export var speed = 0.5
 @export var attack_jump = 2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var icon: Sprite2D = $Icon
 
 func _physics_process(delta: float) -> void:
+	print(velocity)
 	if alvo == null:
 		return
+	
 	var dir = self.global_position - alvo.global_position
+	
+	if push == true:
+		velocity = (dir * attack_jump) * 1
+		move_and_slide()
+		await get_tree().create_timer(0.2).timeout
+		velocity = Vector2.ZERO
+		move_and_slide()
+		await get_tree().create_timer(3).timeout
+		push = false
+		return
+	
 	if close == true:
 		handle_anim_attack()
 		velocity = (dir * attack_jump) * -1
@@ -70,4 +84,4 @@ func _on_close_box_area_exited(area: Area2D) -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	print("dano")
+	push = true

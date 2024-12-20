@@ -17,6 +17,7 @@ var invencible: bool = false
 func _ready() -> void:
 	walk_cycles = randi_range(min_walk_cycle,max_walk_cycle)
 	SignalManager.on_call_pressed.connect(on_call_pressed)
+	SignalManager.on_brother_dead.connect(on_brother_dead)
 	health = GameManager.get_brother_health() #pq ja vai estar como max no game manager
 	progress_bar.max_value = GameManager.get_brother_max_health()
 	progress_bar.value = GameManager.get_brother_health()
@@ -49,3 +50,6 @@ func _on_hurt_box_body_entered(body: Node2D) -> void:
 
 func _on_hurt_timer_timeout() -> void:
 	invencible = false
+
+func on_brother_dead() -> void:
+	queue_free()

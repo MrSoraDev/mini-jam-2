@@ -8,16 +8,14 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
-	if player.player_direction == Vector2.UP:
+	if player.looking_down == true:
+		animated_sprite_2d.play("idle_down")
+	elif player.looking_down == false:
 		animated_sprite_2d.play("idle_up")
-	elif player.player_direction == Vector2.DOWN:
-		animated_sprite_2d.play("idle_down")
-	#elif player.player_direction == Vector2.RIGHT:
+	#if player.player_direction == Vector2.UP:
+		#animated_sprite_2d.play("idle_up")
+	#elif player.player_direction == Vector2.DOWN:
 		#animated_sprite_2d.play("idle_down")
-	#elif player.player_direction == Vector2.LEFT:
-		#animated_sprite_2d.play("idle_down")
-	else:
-		animated_sprite_2d.play("idle_down")
 
 func _on_next_transitions() -> void:
 	if player.is_movement_input():

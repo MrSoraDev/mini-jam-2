@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://77o3j4d7qiif"]
+[gd_scene load_steps=15 format=3 uid="uid://77o3j4d7qiif"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/wolf.gd" id="1_3c8fa"]
-[ext_resource type="Texture2D" uid="uid://dsopdytu1in0i" path="res://Assets/Enemy/dog-Sheet.png" id="2_6kggw"]
+[ext_resource type="Texture2D" uid="uid://bhvyknwmit2r5" path="res://Assets/Enemy/dog-Sheet.png" id="2_6kggw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dt2s"]
 radius = 134.629
@@ -26,21 +26,17 @@ tracks/0/keys = {
 "update": 1,
 "values": [7]
 }
-
-[sub_resource type="Animation" id="Animation_dbahk"]
-resource_name = "attack_up"
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hit_box/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 3, 0]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_ikv7o"]
@@ -58,27 +54,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [6, 7, 6]
 }
-
-[sub_resource type="Animation" id="Animation_xu5ja"]
-resource_name = "walking_up"
-loop_mode = 1
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hit_box/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333334, 0.833335),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 3, 0, 3, 0, 3]
+"values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_5jeso"]
-resource_name = "walking_down"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_dbahk"]
+resource_name = "attack_up"
 step = 0.166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -87,27 +77,22 @@ tracks/0/path = NodePath("Icon:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.166667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [4, 7, 4, 7, 4, 7]
+"values": [0, 3, 0]
 }
-
-[sub_resource type="Animation" id="Animation_hj5vk"]
-resource_name = "idle_up"
-length = 0.166683
-step = 0.166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hit_box/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333334, 0.833335),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_wi1i3"]
@@ -127,6 +112,57 @@ tracks/0/keys = {
 "values": [4]
 }
 
+[sub_resource type="Animation" id="Animation_hj5vk"]
+resource_name = "idle_up"
+length = 0.166683
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5jeso"]
+resource_name = "walking_down"
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 7, 4, 7, 4, 7]
+}
+
+[sub_resource type="Animation" id="Animation_xu5ja"]
+resource_name = "walking_up"
+loop_mode = 1
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 0, 3, 0, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k432d"]
 _data = {
 "RESET": SubResource("Animation_ykdvo"),
@@ -137,6 +173,9 @@ _data = {
 "walking_down": SubResource("Animation_5jeso"),
 "walking_up": SubResource("Animation_xu5ja")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tamxh"]
+radius = 11.1803
 
 [node name="Wolf" type="CharacterBody2D"]
 collision_layer = 0
@@ -172,6 +211,16 @@ libraries = {
 "": SubResource("AnimationLibrary_k432d")
 }
 
+[node name="Hit_box" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box"]
+shape = SubResource("CircleShape2D_tamxh")
+disabled = true
+debug_color = Color(0.968627, 0.184314, 0, 0)
+
 [connection signal="area_entered" from="See_box" to="." method="_on_see_box_area_entered"]
 [connection signal="area_entered" from="Close_box" to="." method="_on_close_box_area_entered"]
 [connection signal="area_exited" from="Close_box" to="." method="_on_close_box_area_exited"]
+[connection signal="area_entered" from="Hit_box" to="." method="_on_hit_box_area_entered"]

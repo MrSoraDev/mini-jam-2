@@ -67,3 +67,7 @@ func _on_close_box_area_entered(area: Area2D) -> void:
 
 func _on_close_box_area_exited(area: Area2D) -> void:
 	close = false
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	print("dano")

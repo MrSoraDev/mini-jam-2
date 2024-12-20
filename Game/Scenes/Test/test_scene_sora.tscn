@@ -5,16 +5,19 @@
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_yip2v"]
 
 [node name="Test_Scene_Sora" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(148, 124)
 texture = ExtResource("1_5v44x")
 
 [node name="Player" parent="." instance=ExtResource("2_muubl")]
+y_sort_enabled = true
 position = Vector2(66, 43)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
 
 [node name="Brother" parent="." instance=ExtResource("3_yip2v")]
+y_sort_enabled = true
 position = Vector2(67, 74)

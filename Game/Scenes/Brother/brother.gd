@@ -39,17 +39,18 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 	print_debug("terminou navegaçao, mudar local")
 
 
-func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if invencible == false:
-		GameManager.change_brother_health(-10.0)
-		invencible == true
-		hurt_timer.start()
-	else:
-		return
-
 
 func _on_hurt_timer_timeout() -> void:
 	invencible = false
 
 func on_brother_dead() -> void:
 	queue_free()
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if invencible == false:
+		GameManager.change_brother_health(-10.0)
+		invencible == true
+		hurt_timer.start()
+	else:
+		return

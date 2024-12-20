@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dead6qdpb1p44"
-path="res://.godot/imported/Protag-1-Sheet.png-979abb05b5ce2c58aec792d57f9a274a.ctex"
+uid="uid://s60y6q3xnwir"
+path="res://.godot/imported/Brother_1-1-Sheet.png-01e64b296a861a95e6d164ecc9594fc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/Protag-1-Sheet.png"
-dest_files=["res://.godot/imported/Protag-1-Sheet.png-979abb05b5ce2c58aec792d57f9a274a.ctex"]
+source_file="res://Assets/Brother/Brother_1-1-Sheet.png"
+dest_files=["res://.godot/imported/Brother_1-1-Sheet.png-01e64b296a861a95e6d164ecc9594fc2.ctex"]
 
 [params]
 

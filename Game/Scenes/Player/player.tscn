@@ -106,7 +106,7 @@ shape = SubResource("CircleShape2D_hdlee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i30xd")
-animation = &"idle_down"
+animation = &"run_up"
 autoplay = "idle_down"
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_node_state")]

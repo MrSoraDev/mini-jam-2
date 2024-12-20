@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://bk8d2imd1kuvs"]
+[gd_scene load_steps=5 format=3 uid="uid://bk8d2imd1kuvs"]
+
+[ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="1_hic1r"]
+[ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_yd77j"]
+[ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="2_awifx"]
+[ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="4_ad1b3"]
 
 [node name="TestSceneYrs" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.840434, 0, 0.10497, 1)
+position = Vector2(139, 38)
+texture = ExtResource("1_yd77j")
+
+[node name="Player" parent="." instance=ExtResource("1_hic1r")]
+position = Vector2(-31, 71)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+
+[node name="Brother" parent="." instance=ExtResource("2_awifx")]
+position = Vector2(67, 74)
+
+[node name="Wolf" parent="." instance=ExtResource("4_ad1b3")]
+position = Vector2(178, 188)

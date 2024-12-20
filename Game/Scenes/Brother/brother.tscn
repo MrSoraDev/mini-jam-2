@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcn2yta8b33n0"]
+[gd_scene load_steps=16 format=3 uid="uid://bcn2yta8b33n0"]
 
 [ext_resource type="Texture2D" uid="uid://bqchr32nuqahd" path="res://Assets/Player/basic_charakter_spritesheet.png" id="1_4acjn"]
 [ext_resource type="Script" path="res://Game/Scenes/Brother/brother.gd" id="1_orvyp"]
@@ -55,7 +55,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwyou"]
 radius = 8.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxwr1"]
+radius = 8.0
+
 [node name="Brother" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_orvyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -107,5 +111,12 @@ texture = ExtResource("7_56sls")
 [node name="FollowTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="brother_see_box" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brother_see_box"]
+shape = SubResource("CircleShape2D_rxwr1")
 
 [connection signal="timeout" from="FollowTimer" to="StateMachine/Return" method="_on_follow_timer_timeout"]

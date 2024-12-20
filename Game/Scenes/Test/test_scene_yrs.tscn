@@ -17,7 +17,7 @@ position = Vector2(139, 38)
 texture = ExtResource("1_yd77j")
 
 [node name="Player" parent="." instance=ExtResource("1_hic1r")]
-position = Vector2(707, -81)
+position = Vector2(245, 276)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
@@ -31,12 +31,13 @@ position = Vector2(178, 188)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(763.5, 273)
+position = Vector2(444, -34)
 shape = SubResource("RectangleShape2D_hohn2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(763.5, -328)
+position = Vector2(1229, -43)
 shape = SubResource("RectangleShape2D_hohn2")
 
 [node name="Amassador" parent="." instance=ExtResource("5_7d25y")]
 position = Vector2(803, -32)
+y_dir = false

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var hurt_box: Area2D = $HurtBox
 @onready var hurt_timer: Timer = $HurtTimer
+@onready var hurt_animation: AnimationPlayer = $HurtAnimation
 
 var walk_cycles: int
 var current_walk_cycle: int
@@ -49,8 +50,9 @@ func on_brother_dead() -> void:
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if invencible == false:
-		GameManager.change_brother_health(-10.0)
+		GameManager.change_brother_health(-50.0)
 		invencible == true
 		hurt_timer.start()
+		hurt_animation.play("hurt")
 	else:
 		return

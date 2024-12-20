@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmlsku6j41s4v"]
+[gd_scene load_steps=5 format=3 uid="uid://bmlsku6j41s4v"]
 
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_5v44x"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_muubl"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_yip2v"]
+[ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="4_upubs"]
 
 [node name="Test_Scene_Sora" type="Node2D"]
 y_sort_enabled = true
@@ -21,3 +22,6 @@ zoom = Vector2(3, 3)
 [node name="Brother" parent="." instance=ExtResource("3_yip2v")]
 y_sort_enabled = true
 position = Vector2(67, 74)
+
+[node name="Wolf" parent="." instance=ExtResource("4_upubs")]
+position = Vector2(-49, 25)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bcn2yta8b33n0"]
+[gd_scene load_steps=35 format=3 uid="uid://bcn2yta8b33n0"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Brother/brother.gd" id="1_orvyp"]
 [ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_grepv"]
@@ -174,6 +174,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_eieol"]
+resource_name = "hurt"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.677499, 0.0928904, 0.330332, 1), Color(1, 1, 1, 1), Color(0.771521, 0.0588156, 0.383296, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o1lk7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nd0rh"]
+_data = {
+"RESET": SubResource("Animation_o1lk7"),
+"hurt": SubResource("Animation_eieol")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwyou"]
 radius = 8.0
 
@@ -191,6 +228,11 @@ shape = SubResource("CircleShape2D_5pb2d")
 sprite_frames = SubResource("SpriteFrames_lmut8")
 animation = &"walk_up"
 autoplay = "idle_down"
+
+[node name="HurtAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nd0rh")
+}
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("2_grepv")
@@ -237,6 +279,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="HurtTimer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="brother_see_box" type="Area2D" parent="."]
 collision_layer = 256

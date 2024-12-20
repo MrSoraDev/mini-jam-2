@@ -12,6 +12,10 @@ func _on_physics_process(_delta : float) -> void:
 		animated_sprite_2d.play("idle_up")
 	elif player.player_direction == Vector2.DOWN:
 		animated_sprite_2d.play("idle_down")
+	#elif player.player_direction == Vector2.RIGHT:
+		#animated_sprite_2d.play("idle_down")
+	#elif player.player_direction == Vector2.LEFT:
+		#animated_sprite_2d.play("idle_down")
 	else:
 		animated_sprite_2d.play("idle_down")
 

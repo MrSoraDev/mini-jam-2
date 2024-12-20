@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	player_direction = Input.get_vector("left","right","up","down")
+	player_direction = Input.get_vector("left","right","up","down").normalized()
 	velocity.x = move_toward(velocity.x,speed * player_direction.x, accel)
 	velocity.y = move_toward(velocity.y,speed * player_direction.y, accel)
 	

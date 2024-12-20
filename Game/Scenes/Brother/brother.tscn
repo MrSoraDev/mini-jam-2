@@ -119,4 +119,9 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="brother_see_box"]
 shape = SubResource("CircleShape2D_rxwr1")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="FollowTimer" to="StateMachine/Return" method="_on_follow_timer_timeout"]

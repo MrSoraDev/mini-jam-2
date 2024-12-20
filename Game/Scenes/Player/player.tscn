@@ -1,0 +1,137 @@
+[gd_scene load_steps=18 format=3 uid="uid://lrv352046fas"]
+
+[ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
+[ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_b760h"]
+[ext_resource type="Texture2D" uid="uid://bqchr32nuqahd" path="res://Assets/Player/basic_charakter_spritesheet.png" id="2_dj3ie"]
+[ext_resource type="Script" path="res://Game/Scenes/Player/idle_state.gd" id="3_dlctw"]
+[ext_resource type="Script" path="res://Game/Scenes/Player/run_state.gd" id="4_nccvr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hdlee"]
+radius = 7.28011
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5qyv"]
+atlas = ExtResource("2_dj3ie")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxoxg"]
+atlas = ExtResource("2_dj3ie")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jt6u"]
+atlas = ExtResource("2_dj3ie")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pmri"]
+atlas = ExtResource("2_dj3ie")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auec6"]
+atlas = ExtResource("2_dj3ie")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n4ud"]
+atlas = ExtResource("2_dj3ie")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imnju"]
+atlas = ExtResource("2_dj3ie")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44s3b"]
+atlas = ExtResource("2_dj3ie")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i30xd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5qyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxoxg")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jt6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pmri")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auec6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n4ud")
+}],
+"loop": true,
+"name": &"run_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imnju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44s3b")
+}],
+"loop": true,
+"name": &"run_up",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxtpr"]
+size = Vector2(12, 15)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_x36pw"]
+vertices = PackedVector2Array(46.4609, -59.0391, 63, -28.4609, 63, 16.4063, 44.25, 39.2266, 0.851563, 51.6328, -33.1875, 42.8984, -60, 19.4531, -60, -24.7031, -46.8203, -51.8672, -0.242188, -67.6875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-70, 24, -70, -27, -54, -60, -1, -78, 53, -68, 73, -31, 73, 20, 50, 48, 1, 62, -38, 52)])
+source_geometry_mode = 2
+
+[node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
+collision_layer = 2
+script = ExtResource("1_3i46q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hdlee")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i30xd")
+animation = &"idle_down"
+autoplay = "idle_down"
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("2_b760h")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("3_dlctw")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animated_sprite_2d")]
+script = ExtResource("4_nccvr")
+player = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_fxtpr")
+
+[node name="BrotherPath" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="BrotherPath"]
+navigation_polygon = SubResource("NavigationPolygon_x36pw")

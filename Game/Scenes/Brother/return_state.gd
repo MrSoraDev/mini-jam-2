@@ -16,8 +16,8 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
-	var direction = character.global_position.direction_to(player.global_position) - Vector2(20,20)
-	character.velocity = direction * 300
+	var direction = character.global_position.direction_to(player_position) - Vector2(20,20)
+	character.velocity = direction * 30
 	character.move_and_slide()
 
 
@@ -29,7 +29,7 @@ func _on_enter() -> void:
 	follow_timer.start()
 	
 func _on_exit() -> void:
-	character.called == false
+	character.called = false
 	transition.emit("idle")
 
 

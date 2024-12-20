@@ -23,11 +23,15 @@ func _on_physics_process(_delta : float) -> void:
 
 
 func _on_next_transitions() -> void:
-	if idle_state_timeout:
-		transition.emit("walk")
-	elif character.called == true:
-		print("chamou")
+	if character.called == true:
+		character.called = false
 		transition.emit("return")
+		
+		
+	elif idle_state_timeout:
+		transition.emit("walk")
+		
+
 
 
 func _on_enter() -> void:

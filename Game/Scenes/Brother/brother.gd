@@ -16,9 +16,9 @@ func _on_follow_timer_timeout() -> void:
 	pass # Replace with function body.
 
 func _process(delta: float) -> void:
-	print(called)
+	pass
 
 
 func on_call_pressed() -> void:
 	#print_debug("apertou")
-	called == true
+	called = true

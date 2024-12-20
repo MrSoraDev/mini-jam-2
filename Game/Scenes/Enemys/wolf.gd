@@ -4,13 +4,17 @@ var alvo = null
 var close = false
 var up : bool = false
 var push = false
+var stun = false
 @export var speed = 0.5
 @export var attack_jump = 2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var icon: Sprite2D = $Icon
-
+@onready var timer: Timer = $Timer
+var stun_timer = 0.5
 func _physics_process(delta: float) -> void:
-	print(velocity)
+	if stun == true:
+		velocity = Vector2.ZERO
+		return
 	if alvo == null:
 		return
 	
@@ -19,11 +23,10 @@ func _physics_process(delta: float) -> void:
 	if push == true:
 		velocity = (dir * attack_jump) * 1
 		move_and_slide()
-		await get_tree().create_timer(0.2).timeout
-		velocity = Vector2.ZERO
-		move_and_slide()
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(0.4).timeout
 		push = false
+		stun = true
+		timer.start(stun_timer)
 		return
 	
 	if close == true:
@@ -85,3 +88,7 @@ func _on_close_box_area_exited(area: Area2D) -> void:
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	push = true
+
+
+func _on_timer_timeout() -> void:
+	stun = false

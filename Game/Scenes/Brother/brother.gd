@@ -17,6 +17,7 @@ var invencible: bool = false
 
 
 func _ready() -> void:
+	GameManager.set_player(self)
 	walk_cycles = randi_range(min_walk_cycle,max_walk_cycle)
 	SignalManager.on_call_pressed.connect(on_call_pressed)
 	SignalManager.on_brother_dead.connect(on_brother_dead)

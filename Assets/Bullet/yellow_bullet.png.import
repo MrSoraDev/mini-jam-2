@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck3kc1d0a7w1p"
-path="res://.godot/imported/slash_effect.png-a7e5e505e92b615af62058ed51dbbed6.ctex"
+uid="uid://c3qag88trf4mm"
+path="res://.godot/imported/yellow_bullet.png-af419a968f8ab9e890a5caa7fdee65da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/weapon/slash_effect.png"
-dest_files=["res://.godot/imported/slash_effect.png-a7e5e505e92b615af62058ed51dbbed6.ctex"]
+source_file="res://Assets/Bullet/yellow_bullet.png"
+dest_files=["res://.godot/imported/yellow_bullet.png-af419a968f8ab9e890a5caa7fdee65da.ctex"]
 
 [params]
 

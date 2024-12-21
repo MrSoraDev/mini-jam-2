@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=3 uid="uid://jjndnt2os2mk"]
+
+[ext_resource type="Script" path="res://Game/Scenes/Bullets/bullet_yellow.gd" id="1_rmonq"]
+[ext_resource type="Texture2D" uid="uid://c3qag88trf4mm" path="res://Assets/Bullet/yellow_bullet.png" id="2_4h5y5"]
+[ext_resource type="Texture2D" uid="uid://bhgp41kjphmld" path="res://Assets/Bullet/yellow_full_bullet.png" id="3_o68r6"]
+
+[sub_resource type="Curve" id="Curve_lg0ax"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2udwk"]
+radius = 3.0
+
+[sub_resource type="Animation" id="Animation_ugbwn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Greenbullet:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xqjb3"]
+resource_name = "rolling"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Greenbullet:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wusbi"]
+_data = {
+"RESET": SubResource("Animation_ugbwn"),
+"rolling": SubResource("Animation_xqjb3")
+}
+
+[node name="bullet_yellow" type="CharacterBody2D"]
+script = ExtResource("1_rmonq")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 16
+texture = ExtResource("2_4h5y5")
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_lg0ax")
+
+[node name="Greenbullet" type="Sprite2D" parent="."]
+texture = ExtResource("3_o68r6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_2udwk")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(-3, 0)
+target_position = Vector2(6, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wusbi")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

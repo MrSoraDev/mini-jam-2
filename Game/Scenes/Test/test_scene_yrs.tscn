@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bk8d2imd1kuvs"]
+[gd_scene load_steps=13 format=4 uid="uid://bk8d2imd1kuvs"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="1_hic1r"]
 [ext_resource type="Texture2D" uid="uid://c0ygolomwy18g" path="res://Assets/Tilemap/Tileset.png" id="1_l5pqv"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="4_ad1b3"]
 [ext_resource type="PackedScene" uid="uid://c045mi8spuru2" path="res://Game/Scenes/Enemys/amassador.tscn" id="5_7d25y"]
 [ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="6_ucpv2"]
+[ext_resource type="PackedScene" uid="uid://bs4tpgkps66ti" path="res://Game/Scenes/Enemys/torrada.tscn" id="8_ttwp7"]
+[ext_resource type="PackedScene" uid="uid://s5yyvldpkcja" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="9_vwhex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysajr"]
 texture = ExtResource("1_l5pqv")
@@ -137,6 +139,7 @@ texture = ExtResource("1_l5pqv")
 11:14/0 = 0
 12:14/0 = 0
 3:15/0 = 0
+3:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:15/0 = 0
 5:15/0 = 0
 6:15/0 = 0
@@ -156,17 +159,29 @@ texture = ExtResource("1_l5pqv")
 2:11/0 = 0
 2:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:9/0 = 0
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:10/0 = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:10/0 = 0
+2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:15/0 = 0
+2:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:15/0 = 0
+1:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:7/0 = 0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:8/0 = 0
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.5, -8, 8, -8, 8, -5.625, -0.625, -5.875)
 2:8/0 = 0
+2:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -1, -8, -1.75, -5.875, -8, -6.125)
 3:8/0 = 0
+3:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_214rx"]
 physics_layer_0/collision_layer = 1
@@ -218,5 +233,11 @@ shape = SubResource("RectangleShape2D_hohn2")
 position = Vector2(803, -32)
 
 [node name="Shooter_enemy" parent="." instance=ExtResource("6_ucpv2")]
-position = Vector2(195, 288)
+position = Vector2(120, 328)
 dir = Vector2(1, 0)
+
+[node name="Torrada" parent="." instance=ExtResource("8_ttwp7")]
+position = Vector2(343, 227)
+
+[node name="Shooter_yello" parent="." instance=ExtResource("9_vwhex")]
+position = Vector2(280, 396)

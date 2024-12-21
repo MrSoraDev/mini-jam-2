@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bcn2yta8b33n0"]
+[gd_scene load_steps=50 format=3 uid="uid://bcn2yta8b33n0"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Brother/brother.gd" id="1_orvyp"]
 [ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_grepv"]
@@ -7,9 +7,46 @@
 [ext_resource type="Script" path="res://Game/Scenes/Brother/idle_state.gd" id="3_o51f6"]
 [ext_resource type="Script" path="res://Game/Scenes/Brother/walk_state.gd" id="4_b0cuk"]
 [ext_resource type="Script" path="res://Game/Scenes/Brother/return_state.gd" id="6_kj415"]
+[ext_resource type="Script" path="res://Game/Scenes/Brother/falling_state.gd" id="8_bl34x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5pb2d"]
 radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo1xh"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(352, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjo5v"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(368, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wetq8"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(384, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cn10"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(400, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xjpc"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(416, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf7ww"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhm6q"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(320, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex8eq"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(336, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv0wi"]
+atlas = ExtResource("2_ie8yq")
+region = Rect2(160, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7amx1"]
 atlas = ExtResource("2_ie8yq")
@@ -95,6 +132,43 @@ region = Rect2(304, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yo1xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjo5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wetq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cn10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xjpc")
+}],
+"loop": true,
+"name": &"die",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf7ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhm6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex8eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv0wi")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_7amx1")
 }, {
 "duration": 1.0,
@@ -102,7 +176,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_down",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -113,7 +187,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_up",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -142,7 +216,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_down",
-"speed": 3.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -171,7 +245,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_up",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="Animation" id="Animation_o1lk7"]
@@ -236,6 +310,42 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rxwr1"]
 radius = 8.0
 
+[sub_resource type="Animation" id="Animation_mp8fa"]
+resource_name = "shinking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_wjjma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0xud"]
+_data = {
+"RESET": SubResource("Animation_wjjma"),
+"shinking": SubResource("Animation_mp8fa")
+}
+
 [node name="Brother" type="CharacterBody2D"]
 collision_layer = 1026
 collision_mask = 1027
@@ -250,7 +360,7 @@ shape = SubResource("CircleShape2D_5pb2d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lmut8")
-animation = &"walk_up"
+animation = &"die"
 autoplay = "idle_down"
 
 [node name="HurtAnimation" type="AnimationPlayer" parent="."]
@@ -279,6 +389,14 @@ navigation_agent_2d = NodePath("../../NavigationAgent2D")
 script = ExtResource("6_kj415")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("8_bl34x")
+
+[node name="FallingTimer" type="Timer" parent="StateMachine/Falling"]
+one_shot = true
+
+[node name="Dead" type="Node" parent="StateMachine"]
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 576
@@ -324,6 +442,12 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 
+[node name="BrotherAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j0xud")
+}
+
+[connection signal="timeout" from="StateMachine/Falling/FallingTimer" to="StateMachine/Falling" method="_on_falling_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="PlayerDectection" to="." method="_on_player_dectection_area_entered"]
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=56 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Game/Scenes/Player/hurt_state.gd" id="8_e52ts"]
 [ext_resource type="Texture2D" uid="uid://ck3kc1d0a7w1p" path="res://Assets/weapon/slash_effect.png" id="9_6kvfi"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/shield_node.gd" id="13_2kq6s"]
+[ext_resource type="Texture2D" uid="uid://b303qffyddv7q" path="res://Assets/weapon/shield-Sheet.png" id="14_3ibd1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdlee"]
 radius = 7.28011
@@ -692,10 +693,10 @@ script = ExtResource("13_2kq6s")
 
 [node name="Shield" type="Sprite2D" parent="ShieldNode"]
 modulate = Color(0.660318, 0.381202, 4.81307e-07, 1)
-position = Vector2(14, -0.412943)
-rotation = 1.5708
-scale = Vector2(1.81852, 1)
-texture = ExtResource("9_6kvfi")
+position = Vector2(18, -1.41581)
+rotation = 3.14159
+scale = Vector2(1.63417, 1.17698)
+texture = ExtResource("14_3ibd1")
 hframes = 2
 
 [node name="ShieldAnimation" type="AnimationPlayer" parent="ShieldNode"]

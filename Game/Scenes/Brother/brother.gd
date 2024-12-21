@@ -15,7 +15,8 @@ var current_walk_cycle: int
 var called: bool = false
 var health: float
 var invencible: bool = false
-
+var falling: bool = false
+var dead: bool = false
 
 func _ready() -> void:
 	GameManager.set_player(self)
@@ -30,7 +31,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	progress_bar.value = GameManager.get_brother_health()
-
+	
 
 func on_call_pressed() -> void:
 	#print_debug("apertou")

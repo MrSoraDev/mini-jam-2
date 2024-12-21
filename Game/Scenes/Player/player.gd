@@ -13,7 +13,6 @@ var has_herb: bool = false
 
 func _ready() -> void:
 	herb_indicatior.visible = false
-	print(global_position)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("call"):

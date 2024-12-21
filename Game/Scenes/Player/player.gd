@@ -50,3 +50,7 @@ func _on_herb_catcher_area_entered(area: Area2D) -> void:
 	herb_indicatior.visible = true
 	area.queue_free()
 	has_herb = true
+
+func herb_delivered() -> void:
+	has_herb = false
+	herb_indicatior.visible = false

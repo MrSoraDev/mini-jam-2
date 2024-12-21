@@ -22,5 +22,7 @@ zoom = Vector2(3, 3)
 [node name="Brother" parent="." instance=ExtResource("3_yip2v")]
 y_sort_enabled = true
 position = Vector2(67, 74)
+min_walk_cycle = 2
+max_walk_cycle = 6
 
 [node name="Herb" parent="." instance=ExtResource("4_7x2w7")]

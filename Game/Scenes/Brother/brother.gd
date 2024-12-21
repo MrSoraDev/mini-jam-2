@@ -57,5 +57,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 
 
 func _on_player_dectection_area_entered(area: Area2D) -> void:
-	area.get_parent().has_herb = false
+
 	GameManager.change_brother_health(200.0)
+	
+	area.get_parent().herb_delivered()

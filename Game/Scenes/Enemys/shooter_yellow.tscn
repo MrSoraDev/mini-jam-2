@@ -1,8 +1,23 @@
 [gd_scene load_steps=7 format=3 uid="uid://s5yyvldpkcja"]
 
-[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="1_nydoo"]
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/shooter_yellow.gd" id="2_6y0ad"]
+[ext_resource type="Texture2D" uid="uid://dyn7rfe21bmyj" path="res://Assets/Enemy/duck-Sheet.png" id="2_i42jo"]
 [ext_resource type="Texture2D" uid="uid://bca3sey1ni33u" path="res://Assets/Enemy/luzinha-Sheet.png" id="3_yi1hg"]
+
+[sub_resource type="Animation" id="Animation_pgcrr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_olesy"]
 resource_name = "shoot"
@@ -21,40 +36,34 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 3, 0]
 }
 
-[sub_resource type="Animation" id="Animation_pgcrr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3bw72"]
 _data = {
 "RESET": SubResource("Animation_pgcrr"),
 "shoot": SubResource("Animation_olesy")
 }
 
-[node name="Shooter_yello" instance=ExtResource("1_nydoo")]
+[node name="Shooter_yello" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("2_6y0ad")
 
-[node name="Icon" parent="." index="0"]
+[node name="Icon" type="Sprite2D" parent="."]
 visible = false
+texture = ExtResource("2_i42jo")
+hframes = 18
+frame = 12
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_yi1hg")
 hframes = 12
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_3bw72")
 }
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -70,7 +70,6 @@ func _on_next_transitions() -> void:
 		transition.emit("idle")
 		
 	elif character.called == true:
-		print("chamou")
 		transition.emit("return")
 	
 	

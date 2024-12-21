@@ -18,7 +18,7 @@ func _on_process(_delta : float) -> void:
 func _on_physics_process(_delta : float) -> void:
 	player_position = player.global_position
 	var direction = character.global_position.direction_to(player_position) #
-	print(direction)
+	#print_debug(direction)
 	character.velocity = direction * 200
 	character.move_and_slide()
 

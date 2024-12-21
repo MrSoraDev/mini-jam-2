@@ -2,6 +2,7 @@ extends Node
 
 var brother_marker:Node2D = null
 var player: CharacterBody2D = null
+var brother = null
 var brother_max_health: float = 1000.0
 var brother_health: float
 var venon_force: float = 0.1
@@ -15,11 +16,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	brother_health -= venon_force
 
+
 func get_brother_max_health() -> float:
 	return brother_max_health
 
+
 func get_brother_health() -> float:
 	return brother_health
+
 
 func change_brother_health(amount:float) -> void:
 	brother_health += amount
@@ -28,14 +32,26 @@ func change_brother_health(amount:float) -> void:
 	elif brother_health >= brother_max_health:
 		brother_health = brother_max_health
 
+
 func set_maker(node):
 	brother_marker = node
+
 
 func get_maker():
 	return brother_marker
 
-func set_player(_player):
+
+func set_player_jogavel(_player):
 	player = _player
 
-func get_player():
+
+func get_player_jogavel():
 	return player
+
+
+func set_player(_player):
+	brother = _player
+
+
+func get_player():
+	return brother

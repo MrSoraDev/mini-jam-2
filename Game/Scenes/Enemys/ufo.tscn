@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfwul70ce22l1"]
+
+[ext_resource type="Script" path="res://Game/Scenes/Enemys/ufo.gd" id="1_be6u7"]
+[ext_resource type="Texture2D" uid="uid://bsdjasreh7oeh" path="res://Assets/Enemy/UFO-Sheet.png" id="2_ntkhw"]
+
+[node name="Ufo" type="CharacterBody2D"]
+script = ExtResource("1_be6u7")
+
+[node name="Ufo-sheet" type="Sprite2D" parent="."]
+texture = ExtResource("2_ntkhw")
+hframes = 4
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

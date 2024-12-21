@@ -13,6 +13,7 @@ var speed: float
 
 func _ready() -> void:
 	navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
+	SignalManager.on_brother_hurt.connect(on_brother_hurt)
 	call_deferred("character_setup") #vai esperar um pouco antes de começar a fisica do navegation
 	
 func character_setup() -> void:
@@ -72,6 +73,8 @@ func _on_next_transitions() -> void:
 	elif character.called == true:
 		transition.emit("return")
 	
+func on_brother_hurt():
+	set_movement_target()
 	
 func _on_enter() -> void:
 	

@@ -50,6 +50,7 @@ func on_brother_dead() -> void:
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if invencible == false:
 		GameManager.change_brother_health(-50.0)
+		SignalManager.on_brother_hurt.emit()
 		invencible = true
 		hurt_timer.start()
 		animations.play("hurt")

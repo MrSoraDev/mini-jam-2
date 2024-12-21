@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl2wlh133klod"]
+
+[ext_resource type="Script" path="res://Game/Scenes/Enemys/light_enemy.gd" id="1_ioqr2"]
+[ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="2_74gpi"]
+
+[node name="Light_enemy" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ioqr2")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_74gpi")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

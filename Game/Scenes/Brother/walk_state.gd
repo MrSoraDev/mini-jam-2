@@ -7,7 +7,7 @@ extends NodeState
 @export var max_speed: float = 30
 
 @onready var sprite_2d: Sprite2D = $"../../Sprite2D"
-
+var maker: Node2D = null
 
 var speed: float
 
@@ -22,7 +22,9 @@ func character_setup() -> void:
 	
 func set_movement_target() -> void:
 	var target_position: Vector2 = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(),navigation_agent_2d.navigation_layers,false)
-	#sprite_2d.position = target_position
+	maker = GameManager.get_maker()
+	maker.set_pos(target_position)
+	#sprite_2d.global_position = target_position
 	#navigation_agent_2d.target_position = sprite_2d.global_position
 	navigation_agent_2d.target_position = target_position
 	speed = randf_range(min_speed,max_speed)
@@ -77,4 +79,5 @@ func _on_enter() -> void:
 	character.current_walk_cycle = 0
 
 func _on_exit() -> void:
+	maker.off_maker()
 	animated_sprite_2d.stop()

@@ -26,7 +26,6 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 
 
 func dead():
-	print("dead")
 	queue_free()
 
 

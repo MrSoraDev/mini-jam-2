@@ -20,6 +20,12 @@ SignalManager="*res://Game/Scripts/Singletons/Signal_Manager.gd"
 GameManager="*res://Game/Scripts/Singletons/Game_Manager.gd"
 SoundManager="*res://Game/Scripts/Singletons/Sound_Manager.gd"
 
+[debug]
+
+gdscript/warnings/unused_variable=0
+gdscript/warnings/unused_parameter=0
+gdscript/warnings/unused_signal=0
+
 [file_customization]
 
 folder_colors={

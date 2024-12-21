@@ -18,17 +18,18 @@ func _ready() -> void:
 	herb_indicatior.visible = false
 
 func _process(delta: float) -> void:
-	if falling == true:
-		set_physics_process(false)
-	else:
-		set_physics_process(true)
+	pass
+	#if falling == true:
+		#set_physics_process(false)
+	#else:
+		#set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("call"):
 		SignalManager.on_call_pressed.emit()
 
 	move()
-	print(falling)
+	#print(falling)
 	bat.look_at(get_global_mouse_position())
 	move_and_slide()
 	#print(player_direction)
@@ -42,8 +43,12 @@ func is_movement_input() -> bool:
 
 func move() -> Vector2:
 	player_direction = Input.get_vector("left","right","up","down").normalized()
-	velocity.x = move_toward(velocity.x,speed * player_direction.x, accel)
-	velocity.y = move_toward(velocity.y,speed * player_direction.y, accel)
+	if falling == false:
+		velocity.x = move_toward(velocity.x,speed * player_direction.x, accel)
+		velocity.y = move_toward(velocity.y,speed * player_direction.y, accel)
+	else:
+		velocity.x = 0
+		velocity.y = 0
 	verify_direction()
 	return player_direction
 	

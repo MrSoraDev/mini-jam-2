@@ -13,3 +13,4 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	area.get_parent().falling = true
+	SignalManager.on_falling_end.emit($Marker2D.global_position)

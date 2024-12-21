@@ -13,7 +13,7 @@ extends CharacterBody2D
 var walk_cycles: int
 var current_walk_cycle: int
 var called: bool = false
-var health: int
+var health: float
 var invencible: bool = false
 
 
@@ -50,7 +50,7 @@ func on_brother_dead() -> void:
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if invencible == false:
 		GameManager.change_brother_health(-50.0)
-		invencible == true
+		invencible = true
 		hurt_timer.start()
 		animations.play("hurt")
 		SoundManager.play_clip(sound, SoundManager.HURT)

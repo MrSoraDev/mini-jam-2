@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var vectordir = Vector2.ZERO
-var speed = 10
+var speed = 30
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
 func _ready() -> void:
@@ -13,7 +13,7 @@ func _start(vector):
 	vectordir = vector
 
 func _physics_process(delta: float) -> void:
-	velocity = vectordir * speed * -1
+	velocity = vectordir/20 * speed * -1
 	if ray_cast_2d.is_colliding() == true:
 		dead()
 	

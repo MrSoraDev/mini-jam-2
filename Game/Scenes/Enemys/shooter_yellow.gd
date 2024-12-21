@@ -4,6 +4,7 @@ extends StaticBody2D
 @export var timing_bullet = 2.0
 @export var dir = Vector2.ZERO
 const bullet = preload("res://Game/Scenes/Bullets/bullet_yellow.tscn")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 
@@ -13,6 +14,10 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
+	animation_player.play("shoot")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	var inst = bullet.instantiate()
 	var player = GameManager.get_player()
 	dir = self.global_position - player.global_position

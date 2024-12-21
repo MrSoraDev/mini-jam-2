@@ -38,6 +38,8 @@ func _on_physics_process(_delta : float) -> void:
 		player.player_direction = player.player_direction
 
 func _on_next_transitions() -> void:
+	if player.falling == true:
+		transition.emit("falling")
 	if !player.is_movement_input():
 		transition.emit("idle")
 

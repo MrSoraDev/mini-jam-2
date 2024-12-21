@@ -4,6 +4,7 @@ extends CharacterBody2D
 var player_direction:Vector2
 var looking_down: bool = true
 var has_herb: bool = false
+@export var falling: = false
 
 @export var speed = 100
 @export var accel = 10
@@ -16,12 +17,18 @@ var has_herb: bool = false
 func _ready() -> void:
 	herb_indicatior.visible = false
 
+func _process(delta: float) -> void:
+	if falling == true:
+		set_physics_process(false)
+	else:
+		set_physics_process(true)
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("call"):
 		SignalManager.on_call_pressed.emit()
-	
-	move()
 
+	move()
+	print(falling)
 	bat.look_at(get_global_mouse_position())
 	move_and_slide()
 	#print(player_direction)
@@ -48,6 +55,8 @@ func verify_direction() -> void:
 
 
 func _on_herb_catcher_area_entered(area: Area2D) -> void:
+	if area.collision_layer == 13:
+		print_debug("buraco")
 	herb_indicatior.visible = true
 	area.queue_free()
 	has_herb = true
@@ -60,5 +69,4 @@ func herb_delivered() -> void:
 	herb_indicatior.visible = false
 
 func swing_bat() -> void:
-	
 	SoundManager.play_clip(sound, SoundManager.BATSWING)

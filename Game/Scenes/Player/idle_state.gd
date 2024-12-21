@@ -18,8 +18,11 @@ func _on_physics_process(_delta : float) -> void:
 		#animated_sprite_2d.play("idle_down")
 
 func _on_next_transitions() -> void:
+	if player.falling == true:
+		transition.emit("falling")
 	if player.is_movement_input():
 		transition.emit("Run")
+	
 
 
 func _on_enter() -> void:

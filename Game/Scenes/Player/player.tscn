@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=50 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
@@ -9,10 +9,28 @@
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="6_1wpm7"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/bat_node.gd" id="7_edj2m"]
 [ext_resource type="Texture2D" uid="uid://cxm1wsyrc2yaj" path="res://Assets/weapon/Bat_2.png" id="7_gng6j"]
+[ext_resource type="Script" path="res://Game/Scenes/Player/falling.gd" id="7_qvavx"]
+[ext_resource type="Script" path="res://Game/Scenes/Player/hurt_state.gd" id="8_e52ts"]
 [ext_resource type="Texture2D" uid="uid://ck3kc1d0a7w1p" path="res://Assets/weapon/slash_effect.png" id="9_6kvfi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdlee"]
 radius = 7.28011
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqgwb"]
+atlas = ExtResource("2_1b5ue")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sloi"]
+atlas = ExtResource("2_1b5ue")
+region = Rect2(320, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uifo"]
+atlas = ExtResource("2_1b5ue")
+region = Rect2(336, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc2dk"]
+atlas = ExtResource("2_1b5ue")
+region = Rect2(160, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8du26"]
 atlas = ExtResource("2_1b5ue")
@@ -96,6 +114,23 @@ region = Rect2(304, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i30xd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqgwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0sloi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uifo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc2dk")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8du26")
@@ -333,6 +368,106 @@ _data = {
 "hit": SubResource("Animation_jjc7b")
 }
 
+[sub_resource type="Animation" id="Animation_h08um"]
+resource_name = "falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:falling")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_x4b0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:falling")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ccvfr"]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.984314, 0.992157, 0.996078, 0.376471), Color(1, 1, 1, 1), Color(0.984314, 0.992157, 0.996078, 0.376471)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ge8j"]
+_data = {
+"RESET": SubResource("Animation_x4b0p"),
+"falling": SubResource("Animation_h08um"),
+"hurt": SubResource("Animation_ccvfr")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
 collision_layer = 2
 script = ExtResource("1_3i46q")
@@ -347,8 +482,10 @@ shape = SubResource("CircleShape2D_hdlee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i30xd")
-animation = &"run_up"
+animation = &"falling"
 autoplay = "idle_down"
+frame = 3
+frame_progress = 0.196138
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("2_b760h")
@@ -364,9 +501,15 @@ script = ExtResource("4_nccvr")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource("7_qvavx")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("8_e52ts")
+
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 64
+collision_mask = 4160
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, 0.5)
@@ -425,6 +568,11 @@ disabled = true
 [node name="BatAnimation" type="AnimationPlayer" parent="BatNode"]
 libraries = {
 "": SubResource("AnimationLibrary_137by")
+}
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0ge8j")
 }
 
 [connection signal="area_entered" from="HerbCatcher" to="." method="_on_herb_catcher_area_entered"]

@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var hurt_box: Area2D = $HurtBox
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var animations: AnimationPlayer = $HurtAnimation
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 
 var walk_cycles: int
@@ -52,6 +53,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		invencible == true
 		hurt_timer.start()
 		animations.play("hurt")
+		SoundManager.play_clip(sound, SoundManager.HURT)
 	else:
 		return
 

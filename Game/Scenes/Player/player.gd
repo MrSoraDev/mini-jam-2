@@ -7,9 +7,11 @@ var has_herb: bool = false
 
 @export var speed = 100
 @export var accel = 10
+
 @onready var herb_indicatior: Sprite2D = $HerbIndicatior
 @onready var bat: Sprite2D = $BatNode/Bat
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 func _ready() -> void:
 	herb_indicatior.visible = false
@@ -56,3 +58,7 @@ func have_herb() -> bool:
 func herb_delivered() -> void:
 	has_herb = false
 	herb_indicatior.visible = false
+
+func swing_bat() -> void:
+	
+	SoundManager.play_clip(sound, SoundManager.BATSWING)

@@ -10,7 +10,7 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
-	print(player.player_direction)
+	#print(player.player_direction)
 
 	if player.looking_down == false: #andando pra cima
 		if player.player_direction.x > 0:

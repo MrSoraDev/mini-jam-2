@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var bat_animation: AnimationPlayer = $BatAnimation
+@onready var bat: Sprite2D = $Bat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +12,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var cursor_position = get_global_mouse_position()
 	var rotation_angle = global_position.angle_to_point(cursor_position)
+	if rotation_angle < 1.5 and rotation_angle > -1.5:
+		bat.flip_v = false
+	else: 
+		bat.flip_v = true
+	print(rotation_angle)
 	rotation = rotation_angle
+	
 	if Input.is_action_just_pressed("attack"):
 		bat_animation.play("hit")

@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk8d2imd1kuvs"]
+[gd_scene load_steps=9 format=3 uid="uid://bk8d2imd1kuvs"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="1_hic1r"]
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_yd77j"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="2_awifx"]
+[ext_resource type="PackedScene" uid="uid://bwwric534lkqv" path="res://Game/Scenes/Brother/brother_marker.tscn" id="4_27yy7"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="4_ad1b3"]
-[ext_resource type="Script" path="res://Game/Scenes/Test/brother_marker.gd" id="4_otnld"]
-[ext_resource type="Texture2D" uid="uid://6hluhi07c77p" path="res://Assets/Brother/maker.png" id="5_4qgab"]
 [ext_resource type="PackedScene" uid="uid://c045mi8spuru2" path="res://Game/Scenes/Enemys/amassador.tscn" id="5_7d25y"]
 [ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="6_ucpv2"]
 
@@ -28,14 +27,7 @@ zoom = Vector2(3, 3)
 [node name="Brother" parent="." instance=ExtResource("2_awifx")]
 position = Vector2(300, 313)
 
-[node name="Brother_marker" type="Node2D" parent="."]
-script = ExtResource("4_otnld")
-
-[node name="Sprite2D" type="Sprite2D" parent="Brother_marker"]
-visible = false
-z_index = 3
-position = Vector2(174, 164)
-texture = ExtResource("5_4qgab")
+[node name="Brother_marker" parent="." instance=ExtResource("4_27yy7")]
 
 [node name="Wolf" parent="." instance=ExtResource("4_ad1b3")]
 position = Vector2(523, 385)

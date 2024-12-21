@@ -1,7 +1,8 @@
 extends Node
 
 var Scenes: Dictionary = {
-	"fase1": preload("res://Game/Scenes/Test/test_scene_sora.tscn")
+	"world1": preload("res://Game/Scenes/Test/test_scene_sora.tscn"),
+	"world2": preload("res://Game/Scenes/world/world_02.tscn"),
 }
 
 

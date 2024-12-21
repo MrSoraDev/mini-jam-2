@@ -1,9 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=32 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
 [ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_b760h"]
-[ext_resource type="Texture2D" uid="uid://d4dyke5ucx8pt" path="res://Assets/shadow.png" id="2_i6l3q"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/idle_state.gd" id="3_dlctw"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/run_state.gd" id="4_nccvr"]
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="6_1wpm7"]
@@ -189,10 +188,6 @@ radius = 9.0
 [node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
 collision_layer = 2
 script = ExtResource("1_3i46q")
-
-[node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(0, 3)
-texture = ExtResource("2_i6l3q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hdlee")

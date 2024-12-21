@@ -25,7 +25,7 @@ func _on_physics_process(_delta : float) -> void:
 
 
 func _on_next_transitions() -> void:
-	if character.dead == false:
+	if character.dead == true:
 		transition.emit("dead")
 		
 	if character.falling == true:

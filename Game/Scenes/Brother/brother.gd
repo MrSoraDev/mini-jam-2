@@ -17,6 +17,7 @@ var health: float
 var invencible: bool = false
 var falling: bool = false
 var dead: bool = false
+var health_atual: float
 
 func _ready() -> void:
 	GameManager.set_player(self)
@@ -30,7 +31,11 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	progress_bar.value = GameManager.get_brother_health()
+	health_atual = GameManager.get_brother_health()
+	progress_bar.value = health_atual
+	if health_atual <=0:
+		dead = true
+	#progress_bar.value = GameManager.get_brother_health()
 	
 
 func on_call_pressed() -> void:
@@ -45,7 +50,7 @@ func _on_hurt_timer_timeout() -> void:
 	invencible = false
 
 func on_brother_dead() -> void:
-	queue_free()
+	dead = true
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:

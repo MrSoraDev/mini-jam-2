@@ -6,7 +6,7 @@ extends NodeState
 @export var min_speed: float = 20
 @export var max_speed: float = 30
 
-@onready var sprite_2d: Sprite2D = $"../../Sprite2D"
+
 var maker: Node2D = null
 
 var speed: float

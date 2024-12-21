@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmlsku6j41s4v"]
+[gd_scene load_steps=6 format=3 uid="uid://bmlsku6j41s4v"]
 
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_5v44x"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_muubl"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_yip2v"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="4_7x2w7"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Brother/brother_marker.tscn" id="5_h2hcq"]
 
 [node name="Test_Scene_Sora" type="Node2D"]
 y_sort_enabled = true
@@ -22,7 +23,7 @@ zoom = Vector2(3, 3)
 [node name="Brother" parent="." instance=ExtResource("3_yip2v")]
 y_sort_enabled = true
 position = Vector2(67, 74)
-min_walk_cycle = 2
-max_walk_cycle = 6
 
 [node name="Herb" parent="." instance=ExtResource("4_7x2w7")]
+
+[node name="Brother_marker" parent="." instance=ExtResource("5_h2hcq")]

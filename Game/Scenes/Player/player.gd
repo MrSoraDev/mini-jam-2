@@ -8,7 +8,7 @@ var has_herb: bool = false
 @export var speed = 100
 @export var accel = 10
 @onready var herb_indicatior: Sprite2D = $HerbIndicatior
-
+@onready var bat: Sprite2D = $BatNode/Bat
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	
 	move()
 
-	
+	bat.look_at(get_global_mouse_position())
 	move_and_slide()
 	#print(player_direction)
 	#print(is_movement_input())
@@ -49,6 +49,9 @@ func _on_herb_catcher_area_entered(area: Area2D) -> void:
 	herb_indicatior.visible = true
 	area.queue_free()
 	has_herb = true
+
+func have_herb() -> bool:
+	return has_herb
 
 func herb_delivered() -> void:
 	has_herb = false

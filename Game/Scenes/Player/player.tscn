@@ -1,11 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=36 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
 [ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_b760h"]
+[ext_resource type="Texture2D" uid="uid://d4dyke5ucx8pt" path="res://Assets/shadow.png" id="2_i6l3q"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/idle_state.gd" id="3_dlctw"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/run_state.gd" id="4_nccvr"]
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="6_1wpm7"]
+[ext_resource type="Script" path="res://Game/Scenes/Player/bat_node.gd" id="7_edj2m"]
+[ext_resource type="Texture2D" uid="uid://cxm1wsyrc2yaj" path="res://Assets/weapon/Bat_2.png" id="7_gng6j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdlee"]
 radius = 7.28011
@@ -185,9 +188,18 @@ source_geometry_mode = 2
 [sub_resource type="CircleShape2D" id="CircleShape2D_uk3cv"]
 radius = 9.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4woh"]
+radius = 9.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
 collision_layer = 2
 script = ExtResource("1_3i46q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_i6l3q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hdlee")
@@ -237,5 +249,25 @@ collision_mask = 2048
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HerbCatcher"]
 shape = SubResource("CircleShape2D_uk3cv")
 debug_color = Color(0.275485, 0.632017, 0, 0.42)
+
+[node name="BatNode" type="Node2D" parent="."]
+script = ExtResource("7_edj2m")
+
+[node name="Bat" type="Sprite2D" parent="BatNode"]
+position = Vector2(13, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_gng6j")
+
+[node name="HitBox" type="Area2D" parent="BatNode/Bat"]
+position = Vector2(-1.25, 0)
+scale = Vector2(1.25, 1.25)
+collision_layer = 4
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatNode/Bat/HitBox"]
+position = Vector2(6, -1.19209e-07)
+shape = SubResource("CapsuleShape2D_j4woh")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="HerbCatcher" to="." method="_on_herb_catcher_area_entered"]

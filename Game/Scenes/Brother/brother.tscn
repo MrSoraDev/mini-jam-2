@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bcn2yta8b33n0"]
+[gd_scene load_steps=37 format=3 uid="uid://bcn2yta8b33n0"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Brother/brother.gd" id="1_orvyp"]
 [ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_grepv"]
@@ -189,22 +189,6 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_eieol"]
-resource_name = "hurt"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0.677499, 0.0928904, 0.330332, 1), Color(1, 1, 1, 1), Color(0.771521, 0.0588156, 0.383296, 1), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_46j4r"]
 resource_name = "heal"
 step = 0.1
@@ -219,6 +203,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.2, 0.639216, 0.196078, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eieol"]
+resource_name = "hurt"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.677499, 0.0928904, 0.330332, 1), Color(1, 1, 1, 1), Color(0.771521, 0.0588156, 0.383296, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nd0rh"]
@@ -321,6 +321,8 @@ offset_top = -24.0
 offset_right = 78.0
 offset_bottom = 3.0
 scale = Vector2(0.5, 0.5)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="PlayerDectection" to="." method="_on_player_dectection_area_entered"]

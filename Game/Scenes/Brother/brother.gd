@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var hurt_timer: Timer = $HurtTimer
 @onready var animations: AnimationPlayer = $HurtAnimation
 
+
 var walk_cycles: int
 var current_walk_cycle: int
 var called: bool = false
@@ -33,10 +34,8 @@ func on_call_pressed() -> void:
 	#print_debug("apertou")
 	called = true
 
-
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	print_debug("terminou navegaçao, mudar local")
-
 
 
 func _on_hurt_timer_timeout() -> void:

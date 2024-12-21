@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=40 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="6_1wpm7"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/bat_node.gd" id="7_edj2m"]
 [ext_resource type="Texture2D" uid="uid://cxm1wsyrc2yaj" path="res://Assets/weapon/Bat_2.png" id="7_gng6j"]
+[ext_resource type="Texture2D" uid="uid://egbc5rdnw1ch" path="res://Assets/weapon/slash_effect.png" id="9_6kvfi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdlee"]
 radius = 7.28011
@@ -192,6 +193,84 @@ radius = 9.0
 radius = 9.0
 height = 18.0
 
+[sub_resource type="Animation" id="Animation_jjc7b"]
+resource_name = "hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(13, 0), Vector2(11, -12), Vector2(14, 16), Vector2(13, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bat:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.816814, 1.73835, -0.322886]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slash")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show"
+}, {
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t56dr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bat:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.326377]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_137by"]
+_data = {
+"RESET": SubResource("Animation_t56dr"),
+"hit": SubResource("Animation_jjc7b")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
 collision_layer = 2
 script = ExtResource("1_3i46q")
@@ -250,11 +329,21 @@ collision_mask = 2048
 shape = SubResource("CircleShape2D_uk3cv")
 debug_color = Color(0.275485, 0.632017, 0, 0.42)
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
 [node name="BatNode" type="Node2D" parent="."]
 script = ExtResource("7_edj2m")
 
+[node name="Slash" type="Sprite2D" parent="BatNode"]
+visible = false
+position = Vector2(16, -0.125142)
+rotation = 1.5708
+scale = Vector2(1.66221, 1)
+texture = ExtResource("9_6kvfi")
+
 [node name="Bat" type="Sprite2D" parent="BatNode"]
 position = Vector2(13, 0)
+rotation = -0.326377
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_gng6j")
 
@@ -268,6 +357,9 @@ collision_mask = 128
 position = Vector2(6, -1.19209e-07)
 shape = SubResource("CapsuleShape2D_j4woh")
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+[node name="BatAnimation" type="AnimationPlayer" parent="BatNode"]
+libraries = {
+"": SubResource("AnimationLibrary_137by")
+}
 
 [connection signal="area_entered" from="HerbCatcher" to="." method="_on_herb_catcher_area_entered"]

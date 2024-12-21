@@ -1,19 +1,141 @@
-[gd_scene load_steps=3 format=3 uid="uid://gg16m06v3aj0"]
+[gd_scene load_steps=20 format=3 uid="uid://gg16m06v3aj0"]
 
-[ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_wnljo"]
+[ext_resource type="Texture2D" uid="uid://chqi8gjjtqhm8" path="res://Assets/herb/erva-Sheet.png" id="1_l65qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2pew"]
 size = Vector2(6, 6)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2na5"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvxtp"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdjdo"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6udp"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d68a"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj148"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy2m7"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l36mv"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byh3q"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc85o"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h64kp"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfwmc"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2va3k"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5payu"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3ted"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcheq"]
+atlas = ExtResource("1_l65qc")
+region = Rect2(240, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0tgbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2na5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvxtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdjdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6udp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d68a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj148")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy2m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l36mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byh3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc85o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h64kp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfwmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2va3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5payu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3ted")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcheq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
 [node name="Herb" type="Area2D"]
-modulate = Color(0.305882, 0.905882, 0.380392, 1)
+modulate = Color(0, 0.778479, 0.930273, 1)
 collision_layer = 2048
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 9.53674e-07)
 shape = SubResource("RectangleShape2D_c2pew")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_wnljo")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0tgbs")
+autoplay = "default"
+frame_progress = 0.901936

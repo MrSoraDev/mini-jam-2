@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://d4dyke5ucx8pt" path="res://Assets/shadow.png" id="2_i6l3q"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/idle_state.gd" id="3_dlctw"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/run_state.gd" id="4_nccvr"]
-[ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="6_1wpm7"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/bat_node.gd" id="7_edj2m"]
 [ext_resource type="Texture2D" uid="uid://cxm1wsyrc2yaj" path="res://Assets/weapon/Bat_2.png" id="7_gng6j"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/falling.gd" id="7_qvavx"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/hurt_state.gd" id="8_e52ts"]
 [ext_resource type="Texture2D" uid="uid://ck3kc1d0a7w1p" path="res://Assets/weapon/slash_effect.png" id="9_6kvfi"]
+[ext_resource type="Texture2D" uid="uid://chqi8gjjtqhm8" path="res://Assets/herb/erva-Sheet.png" id="9_dstow"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/shield_node.gd" id="13_2kq6s"]
 [ext_resource type="Texture2D" uid="uid://b303qffyddv7q" path="res://Assets/weapon/shield-Sheet.png" id="14_3ibd1"]
 
@@ -640,10 +640,11 @@ navigation_polygon = SubResource("NavigationPolygon_x36pw")
 
 [node name="HerbIndicatior" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(0.392157, 0.933333, 0.00392157, 1)
+modulate = Color(0, 0.780392, 0.929412, 1)
 position = Vector2(0, -13)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("6_1wpm7")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_dstow")
+hframes = 16
 
 [node name="HerbCatcher" type="Area2D" parent="."]
 collision_layer = 0

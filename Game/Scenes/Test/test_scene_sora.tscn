@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmlsku6j41s4v"]
+[gd_scene load_steps=11 format=3 uid="uid://bmlsku6j41s4v"]
 
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_5v44x"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_muubl"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="6_t0ufr"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="7_fvicl"]
 [ext_resource type="PackedScene" uid="uid://bv65hdla3o1wh" path="res://Game/Scenes/Object/Signs/sign.tscn" id="8_or5qd"]
+[ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="9_hstoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv15p"]
+size = Vector2(52, 48)
 
 [node name="Test_Scene_Sora" type="Node2D"]
 y_sort_enabled = true
@@ -39,3 +43,13 @@ position = Vector2(-164, 42)
 
 [node name="Sign" parent="." instance=ExtResource("8_or5qd")]
 position = Vector2(40, -12)
+
+[node name="ChangeScene" parent="." instance=ExtResource("9_hstoy")]
+position = Vector2(145, 0)
+go_to_scene = "world1"
+
+[node name="CollisionShape2D" parent="ChangeScene" index="0"]
+position = Vector2(16, 14)
+shape = SubResource("RectangleShape2D_uv15p")
+
+[editable path="ChangeScene"]

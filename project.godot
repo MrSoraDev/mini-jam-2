@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 SignalManager="*res://Game/Scripts/Singletons/Signal_Manager.gd"
 GameManager="*res://Game/Scripts/Singletons/Game_Manager.gd"
 SoundManager="*res://Game/Scripts/Singletons/Sound_Manager.gd"
+SceneManager="*res://Game/Scripts/Singletons/Scene_Manager.gd"
 
 [debug]
 

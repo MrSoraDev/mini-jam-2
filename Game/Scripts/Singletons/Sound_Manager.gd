@@ -8,8 +8,8 @@ const WHISTLE = "whistle"
 
 var SOUNDS: Dictionary = {
 	BATSWING: preload("res://Assets/Sound/swing.mp3"), #preloads
-	HEAL: "heal",
-	HIT: "hit",
+	HEAL: preload("res://Assets/Sound/brother_heal.wav"),
+	HIT: "hit", #enemey hitted
 	HURT: preload("res://Assets/Sound/brother_hurt.wav"),
 	WHISTLE : preload("res://Assets/Sound/whistle.mp3")
 }

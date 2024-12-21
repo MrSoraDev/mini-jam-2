@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		bat.flip_v = false
 	else: 
 		bat.flip_v = true
-	print(rotation_angle)
+	#print(rotation_angle)
 	rotation = rotation_angle
 	
 	if Input.is_action_just_pressed("attack"):

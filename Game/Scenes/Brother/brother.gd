@@ -63,3 +63,4 @@ func _on_player_dectection_area_entered(area: Area2D) -> void:
 		GameManager.change_brother_health(200.0)
 		animations.play("heal")
 		area.get_parent().herb_delivered()
+		SoundManager.play_clip(sound, SoundManager.HEAL)

@@ -378,6 +378,7 @@ shape = SubResource("RectangleShape2D_fxtpr")
 navigation_polygon = SubResource("NavigationPolygon_x36pw")
 
 [node name="HerbIndicatior" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0.392157, 0.933333, 0.00392157, 1)
 position = Vector2(0, -13)
 scale = Vector2(0.05, 0.05)

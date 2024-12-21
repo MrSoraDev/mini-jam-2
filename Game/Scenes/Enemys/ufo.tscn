@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfwul70ce22l1"]
+[gd_scene load_steps=4 format=3 uid="uid://cfwul70ce22l1"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/ufo.gd" id="1_be6u7"]
 [ext_resource type="Texture2D" uid="uid://bsdjasreh7oeh" path="res://Assets/Enemy/UFO-Sheet.png" id="2_ntkhw"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dwfmv"]
+radius = 9.0
+
 [node name="Ufo" type="CharacterBody2D"]
 script = ExtResource("1_be6u7")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 4)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dwfmv")
 
 [node name="Ufo-sheet" type="Sprite2D" parent="."]
 texture = ExtResource("2_ntkhw")
@@ -13,3 +24,15 @@ hframes = 4
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+navigation_layers = 2
+path_postprocessing = 1
+avoidance_enabled = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

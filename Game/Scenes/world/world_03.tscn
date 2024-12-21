@@ -392,21 +392,6 @@ position = Vector2(429, 309)
 [node name="Corvo3" parent="." instance=ExtResource("3_mnuaf")]
 position = Vector2(536, 208)
 
-[connection signal="area_entered" from="TileMapLayer2/Hole" to="TileMapLayer2/Hole" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42405" to="TileMapLayer2/@Area2D@42405" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42406" to="TileMapLayer2/@Area2D@42406" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42408" to="TileMapLayer2/@Area2D@42408" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42409" to="TileMapLayer2/@Area2D@42409" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42410" to="TileMapLayer2/@Area2D@42410" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42411" to="TileMapLayer2/@Area2D@42411" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42412" to="TileMapLayer2/@Area2D@42412" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42413" to="TileMapLayer2/@Area2D@42413" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42414" to="TileMapLayer2/@Area2D@42414" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42415" to="TileMapLayer2/@Area2D@42415" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42416" to="TileMapLayer2/@Area2D@42416" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42417" to="TileMapLayer2/@Area2D@42417" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer2/@Area2D@42418" to="TileMapLayer2/@Area2D@42418" method="_on_area_entered"]
-
 [editable path="Node2D/Hole"]
 [editable path="Node2D/Hole2"]
 [editable path="Node2D/Hole3"]

@@ -1,11 +1,73 @@
 extends CharacterBody2D
 
 
-# Called when the node enters the scene tree for the first time.
+@export var min_walk_cycle: int = 2
+@export var max_walk_cycle: int = 6
+
+var walk_cycles: int
+var current_walk_cycle: int
+
+var speed_hunting = 2
+var speed
+var min_speed
+var max_speed
+var player = null
+var actived = false
+var hunting = false
+var fugindo = false
+var brother: CharacterBody2D = null
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+
+@onready var remote_transform_2d: RemoteTransform2D = $RemoteTransform2D
+
 func _ready() -> void:
-	pass # Replace with function body.
+	navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
+	SignalManager.on_call_pressed.connect(get_brother)
+	brother = GameManager.get_player()
+
+func set_movement_target() -> void:
+	var target_position: Vector2 = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(),navigation_agent_2d.navigation_layers,false)
+	#sprite_2d.global_position = target_position
+	#navigation_agent_2d.target_position = sprite_2d.global_position
+	navigation_agent_2d.target_position = target_position
+	speed = randf_range(min_speed,max_speed)
+	
+
+func _physics_process(delta: float) -> void:
+	if navigation_agent_2d.is_navigation_finished() and fugindo == false:
+		current_walk_cycle += 1
+		set_movement_target()
+		return
+	
+	if hunting == true:
+		var dir = brother.global_position - self.global_position
+		velocity = dir * speed
+	
+	if fugindo == true:
+		pass
+		
+	
+	
+	
+	move_and_slide()
+
+func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func get_brother():
+	if actived == true:
+		hunting = true
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	hunting = false
+	fugindo = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	actived = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	actived = false

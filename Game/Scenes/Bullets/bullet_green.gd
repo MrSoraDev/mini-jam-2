@@ -14,7 +14,6 @@ func _start(vector):
 
 func _physics_process(delta: float) -> void:
 	velocity = vectordir * speed
-	print(velocity)
 	if ray_cast_2d.is_colliding() == true:
 		dead()
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://bcn2yta8b33n0"]
+[gd_scene load_steps=36 format=3 uid="uid://bcn2yta8b33n0"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Brother/brother.gd" id="1_orvyp"]
 [ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_grepv"]
 [ext_resource type="Texture2D" uid="uid://djn33bpiheupl" path="res://Assets/Brother/brother-Sheet.png" id="2_ie8yq"]
+[ext_resource type="Texture2D" uid="uid://d4dyke5ucx8pt" path="res://Assets/shadow.png" id="2_m7gdp"]
 [ext_resource type="Script" path="res://Game/Scenes/Brother/idle_state.gd" id="3_o51f6"]
 [ext_resource type="Script" path="res://Game/Scenes/Brother/walk_state.gd" id="4_b0cuk"]
 [ext_resource type="Script" path="res://Game/Scenes/Brother/return_state.gd" id="6_kj415"]
@@ -222,6 +223,10 @@ radius = 8.0
 collision_layer = 1026
 collision_mask = 1026
 script = ExtResource("1_orvyp")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("2_m7gdp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5pb2d")

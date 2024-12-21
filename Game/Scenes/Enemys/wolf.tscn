@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://77o3j4d7qiif"]
+[gd_scene load_steps=16 format=3 uid="uid://77o3j4d7qiif"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/wolf.gd" id="1_3c8fa"]
 [ext_resource type="Texture2D" uid="uid://bhvyknwmit2r5" path="res://Assets/Enemy/dog-Sheet.png" id="2_6kggw"]
+[ext_resource type="Texture2D" uid="uid://d4dyke5ucx8pt" path="res://Assets/shadow.png" id="2_gnh6n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dt2s"]
 radius = 134.629
@@ -24,7 +25,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -181,11 +182,15 @@ radius = 11.1803
 collision_layer = 0
 script = ExtResource("1_3c8fa")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("2_gnh6n")
+
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
 texture = ExtResource("2_6kggw")
 hframes = 8
-frame = 7
+frame = 2
 
 [node name="See_box" type="Area2D" parent="."]
 collision_layer = 0

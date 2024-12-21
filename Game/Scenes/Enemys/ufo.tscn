@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfwul70ce22l1"]
+[gd_scene load_steps=4 format=3 uid="uid://k4han2xrryad"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/ufo.gd" id="1_be6u7"]
 [ext_resource type="Texture2D" uid="uid://bsdjasreh7oeh" path="res://Assets/Enemy/UFO-Sheet.png" id="2_ntkhw"]

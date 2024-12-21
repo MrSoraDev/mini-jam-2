@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmlsku6j41s4v"]
+[gd_scene load_steps=9 format=3 uid="uid://bmlsku6j41s4v"]
 
 [ext_resource type="Texture2D" uid="uid://ccdphwgub4nba" path="res://icon.svg" id="1_5v44x"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_muubl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" path="res://Game/Scenes/Brother/brother_marker.tscn" id="5_h2hcq"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="6_t0ufr"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="7_fvicl"]
+[ext_resource type="PackedScene" uid="uid://bv65hdla3o1wh" path="res://Game/Scenes/Object/Signs/sign.tscn" id="8_or5qd"]
 
 [node name="Test_Scene_Sora" type="Node2D"]
 y_sort_enabled = true
@@ -34,4 +35,7 @@ position = Vector2(67, 74)
 position = Vector2(98, 13)
 
 [node name="Wolf" parent="." instance=ExtResource("6_t0ufr")]
-position = Vector2(-40, 37)
+position = Vector2(-164, 42)
+
+[node name="Sign" parent="." instance=ExtResource("8_or5qd")]
+position = Vector2(40, -12)

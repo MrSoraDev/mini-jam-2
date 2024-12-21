@@ -19,9 +19,9 @@ func _on_physics_process(_delta : float) -> void:
 		elif player.player_direction.x < 0 :
 			animated_sprite_2d.play("run_up")
 			animated_sprite_2d.flip_h = true
-		#else:
-			#animated_sprite_2d.play("run_up")
-			#animated_sprite_2d.flip_h = false
+		elif  player.player_direction.y > 0 and player.player_direction.x == 0 :
+			animated_sprite_2d.play("run_up")
+			animated_sprite_2d.flip_h = false
 	if player.looking_down == true:
 		if player.player_direction.x < 0:
 			animated_sprite_2d.play("run_down")
@@ -29,9 +29,9 @@ func _on_physics_process(_delta : float) -> void:
 		elif player.player_direction.x > 0:
 			animated_sprite_2d.play("run_down")
 			animated_sprite_2d.flip_h = false
-		#else:
-			#animated_sprite_2d.play("run_down")
-			#animated_sprite_2d.flip_h = false
+		elif player.player_direction.y < 0 and player.player_direction.x == 0 :
+			animated_sprite_2d.play("run_up")
+			animated_sprite_2d.flip_h = false
 			
 			
 	if player.player_direction != Vector2.ZERO:

@@ -4,20 +4,42 @@ var alvo = null
 var close = false
 var up : bool = false
 var push = false
+var damage_push = false
+var alvo_damage = null
 var stun = false
+var damage = 3
 @export var speed = 0.5
 @export var attack_jump = 2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var icon: Sprite2D = $Icon
 @onready var timer: Timer = $Timer
 var stun_timer = 0.5
+
+func _ready() -> void:
+	animation_player.play("idle_up")
+
 func _physics_process(delta: float) -> void:
+	if damage <= 0:
+		queue_free()
+	
+	
+	if damage_push == true:
+		var dir = self.global_position + alvo_damage.global_position
+		velocity = (dir * attack_jump * 2) * 1
+		move_and_slide()
+		await get_tree().create_timer(0.4).timeout
+		damage_push = false
+		push = false
+		stun = true
+		timer.start(stun_timer)
+		return
+	
 	if stun == true:
 		velocity = Vector2.ZERO
 		return
+	
 	if alvo == null:
 		return
-	
 	var dir = self.global_position - alvo.global_position
 	
 	if push == true:
@@ -92,3 +114,11 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 func _on_timer_timeout() -> void:
 	stun = false
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	animation_player.play("HIT")
+	damage = damage - 1
+	push = true
+	alvo = area.get_parent()
+	alvo_damage = area.get_parent()

@@ -4,6 +4,8 @@ extends CharacterBody2D
 var player_direction:Vector2
 var looking_down: bool = true
 var has_herb: bool = false
+var defending: bool = false
+
 @export var falling: = false
 
 @export var speed = 100
@@ -14,15 +16,13 @@ var has_herb: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sound: AudioStreamPlayer2D = $Sound
 
+
 func _ready() -> void:
 	herb_indicatior.visible = false
 
 func _process(delta: float) -> void:
 	pass
-	#if falling == true:
-		#set_physics_process(false)
-	#else:
-		#set_physics_process(true)
+		
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("call"):
@@ -75,3 +75,6 @@ func herb_delivered() -> void:
 
 func swing_bat() -> void:
 	SoundManager.play_clip(sound, SoundManager.BATSWING)
+
+func stop_defending() -> void:
+	defending = false

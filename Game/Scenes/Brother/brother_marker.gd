@@ -1,8 +1,10 @@
 extends Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	animation_player.play("pulsar")
 	GameManager.set_maker(self)
 	off_maker()
 

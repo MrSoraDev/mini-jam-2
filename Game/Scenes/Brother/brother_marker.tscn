@@ -1,13 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://gxynls3vvkon"]
+[gd_scene load_steps=6 format=3 uid="uid://gxynls3vvkon"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Brother/brother_marker.gd" id="1_4v1p3"]
-[ext_resource type="Texture2D" uid="uid://6hluhi07c77p" path="res://Assets/Brother/maker.png" id="2_n20rx"]
+[ext_resource type="Texture2D" uid="uid://c3nuvvt8o2fds" path="res://Assets/Brother/marker.png" id="2_sg1kk"]
+
+[sub_resource type="Animation" id="Animation_y6inw"]
+resource_name = "pulsar"
+length = 0.600003
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_528q3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mm6w"]
+_data = {
+"RESET": SubResource("Animation_528q3"),
+"pulsar": SubResource("Animation_y6inw")
+}
 
 [node name="Brother_marker" type="Node2D"]
 script = ExtResource("1_4v1p3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-z_index = 3
+z_index = -1
 position = Vector2(174, 164)
-texture = ExtResource("2_n20rx")
+texture = ExtResource("2_sg1kk")
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7mm6w")
+}

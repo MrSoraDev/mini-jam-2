@@ -44,8 +44,8 @@ func _ready() -> void:
 	timer.start(start_timer)
 	raycasts.y_mode = y_dir
 	raycasts.wait_timer = move_wait_timer + 0.5
-
-
+	if speed < 0:
+		icon.flip_v = true
 func _on_timer_timeout() -> void:
 	animation_player.play("stomp_start")
 	await animation_player.animation_finished

@@ -105,16 +105,17 @@ position = Vector2(0, -1)
 script = ExtResource("3_yulgj")
 
 [node name="RayCast2D" type="RayCast2D" parent="Raycasts"]
-target_position = Vector2(0, -30)
+target_position = Vector2(0, -44)
 
 [node name="RayCast2D2" type="RayCast2D" parent="Raycasts"]
-target_position = Vector2(0, 30)
+target_position = Vector2(0, 48)
 
 [node name="RayCast2D3" type="RayCast2D" parent="Raycasts"]
+position = Vector2(15, 0)
 target_position = Vector2(31, 0)
 
 [node name="RayCast2D4" type="RayCast2D" parent="Raycasts"]
-target_position = Vector2(-29, 0)
+target_position = Vector2(-49, 0)
 
 [node name="Timer" type="Timer" parent="Raycasts"]
 

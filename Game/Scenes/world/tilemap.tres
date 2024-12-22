@@ -1,7 +1,9 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b3ks7piisyh4v"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://b3ks7piisyh4v"]
 
 [ext_resource type="Texture2D" uid="uid://c0ygolomwy18g" path="res://Assets/Tilemap/Tileset.png" id="1_ujavr"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="2_ntd06"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8qgl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysajr"]
 texture = ExtResource("1_ujavr")
@@ -34,6 +36,7 @@ texture = ExtResource("1_ujavr")
 12:9/0 = 0
 3:10/0 = 0
 4:10/0 = 0
+4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:10/0 = 0
 5:10/0/terrain_set = 0
 5:10/0/terrain = 0
@@ -68,6 +71,7 @@ texture = ExtResource("1_ujavr")
 12:10/0 = 0
 3:11/0 = 0
 4:11/0 = 0
+4:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:11/0 = 0
 5:11/0/terrain_set = 0
 5:11/0/terrain = 0
@@ -94,7 +98,9 @@ texture = ExtResource("1_ujavr")
 11:11/0 = 0
 12:11/0 = 0
 3:12/0 = 0
+3:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:12/0 = 0
+4:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:12/0 = 0
 6:12/0 = 0
 7:12/0 = 0
@@ -182,6 +188,7 @@ scenes/1/scene = ExtResource("2_ntd06")
 
 [resource]
 physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_j8qgl")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)

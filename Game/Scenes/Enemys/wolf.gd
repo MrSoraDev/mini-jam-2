@@ -22,8 +22,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if damage <= 0:
-		queue_free()
-	
+		dead()
 	
 	if damage_push == true:
 		var dir = self.global_position + alvo_damage.global_position
@@ -97,7 +96,8 @@ func handle_anim_walking():
 	else:
 		animation_player.play("walking_down")
 
-
+func dead():
+	queue_free()
 func _on_see_box_area_entered(area: Area2D) -> void:
 	alvo = area
 
@@ -126,3 +126,7 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	push = true
 	alvo = area.get_parent()
 	alvo_damage = area.get_parent()
+
+
+func _on_hole_box_area_entered(area: Area2D) -> void:
+	dead()

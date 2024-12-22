@@ -42,8 +42,6 @@ func _on_physics_process(_delta : float) -> void:
 	
 	var target_position: Vector2 = navigation_agent_2d.get_next_path_position()
 	var target_direction: Vector2 = character.global_position.direction_to(target_position)
-	
-	
 	var velocity: Vector2 = target_direction * speed
 	
 	if navigation_agent_2d.avoidance_enabled:

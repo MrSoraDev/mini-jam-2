@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var animations: AnimationPlayer = $HurtAnimation
 @onready var sound: AudioStreamPlayer2D = $Sound
 
-var abducted:bool = false
+@export var abducted:bool = false
 var walk_cycles: int
 var current_walk_cycle: int
 var called: bool = false

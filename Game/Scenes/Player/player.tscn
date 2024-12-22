@@ -656,7 +656,7 @@ collision_mask = 2048
 shape = SubResource("CircleShape2D_uk3cv")
 debug_color = Color(0.275485, 0.632017, 0, 0.42)
 
-[node name="BatNode" type="Node2D" parent="."]
+[node name="BatNode" type="Node2D" parent="." groups=["player"]]
 script = ExtResource("7_edj2m")
 
 [node name="Slash" type="Sprite2D" parent="BatNode"]

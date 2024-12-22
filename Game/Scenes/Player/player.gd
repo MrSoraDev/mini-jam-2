@@ -25,7 +25,7 @@ var can_whistle: bool = true
 func _ready() -> void:
 	herb_indicatior.visible = false
 	GameManager.set_player_jogavel(self)
-
+	
 
 func _process(delta: float) -> void:
 	pass

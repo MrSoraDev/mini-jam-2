@@ -52,6 +52,7 @@ func is_movement_input() -> bool:
 		return true
 
 func move() -> Vector2:
+	check_defending()
 	player_direction = Input.get_vector("left","right","up","down").normalized()
 	if falling == false or hurt == false:
 		velocity.x = move_toward(velocity.x,speed * player_direction.x, accel)
@@ -96,6 +97,10 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		hurt = true
 		invencible = true
 
-
+func check_defending()->void:
+	if defending == false:
+		speed = 100
+	else: 
+		speed = 50
 func _on_whistle_timer_timeout() -> void:
 	can_whistle = true

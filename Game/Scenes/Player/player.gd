@@ -20,6 +20,8 @@ var can_whistle: bool = true
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sound: AudioStreamPlayer2D = $Sound
 @onready var stun: AnimatedSprite2D = $Stun
+@onready var whistle_indicatior: Sprite2D = $WhistleIndicatior
+@onready var timer: Timer = $Timer
 
 
 
@@ -27,14 +29,18 @@ func _ready() -> void:
 	herb_indicatior.visible = false
 	GameManager.set_player_jogavel(self)
 	stun.hide()
+	whistle_indicatior.hide()
 
 func _process(delta: float) -> void:
 	pass
 		
 
 func _physics_process(delta: float) -> void:
+
 	print_debug(hurt)
 	if Input.is_action_just_pressed("call") and can_whistle == true:
+		timer.start()
+		whistle_indicatior.show()
 		SoundManager.play_clip(sound, SoundManager.WHISTLE)
 		SignalManager.on_call_pressed.emit()
 		can_whistle = false
@@ -109,3 +115,7 @@ func check_defending()->void:
 		speed = 50
 func _on_whistle_timer_timeout() -> void:
 	can_whistle = true
+
+
+func _on_timer_timeout() -> void:
+	whistle_indicatior.hide()

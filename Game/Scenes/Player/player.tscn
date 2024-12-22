@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=67 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Game/Scenes/Player/idle_state.gd" id="3_dlctw"]
 [ext_resource type="Texture2D" uid="uid://n0wh1k1jkahk" path="res://Assets/Object/stun2-Sheet.png" id="4_arqc6"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/run_state.gd" id="4_nccvr"]
+[ext_resource type="Texture2D" uid="uid://ffywmhmaa5s0" path="res://Assets/Player/nota_musical.png" id="5_bk6ug"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/bat_node.gd" id="7_edj2m"]
 [ext_resource type="Texture2D" uid="uid://cxm1wsyrc2yaj" path="res://Assets/weapon/Bat_2.png" id="7_gng6j"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/falling.gd" id="7_qvavx"]
@@ -607,6 +608,14 @@ sprite_frames = SubResource("SpriteFrames_0w77i")
 autoplay = "default"
 frame_progress = 0.318011
 
+[node name="WhistleIndicatior" type="Sprite2D" parent="."]
+position = Vector2(13, -16)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_bk6ug")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("2_b760h")
 initial_node_state = NodePath("Idle")
@@ -739,6 +748,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_see_box"]
 shape = SubResource("CircleShape2D_1mnbf")
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Falling/FallingTimer" to="StateMachine/Falling" method="_on_falling_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

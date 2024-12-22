@@ -5,6 +5,7 @@ extends Node2D
 @onready var player: Player = $".."
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var slash: Sprite2D = $Slash
+@onready var whistle_indicatior: Sprite2D = $"../WhistleIndicatior"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,10 +20,12 @@ func _process(delta: float) -> void:
 		#slash.flip_h = false
 		animated_sprite_2d.flip_h = false
 		bat.flip_v = false
+		whistle_indicatior.position.x = 13
 	else: 
 		#slash.flip_h = true
 		animated_sprite_2d.flip_h = true
 		bat.flip_v = true
+		whistle_indicatior.position.x = -13
 		
 	#print(rotation_angle)
 	rotation = rotation_angle

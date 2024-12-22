@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dugljdma8imtv"]
+[gd_scene load_steps=21 format=3 uid="uid://dugljdma8imtv"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/wolf.gd" id="1_0fm6o"]
 [ext_resource type="Texture2D" uid="uid://d4dyke5ucx8pt" path="res://Assets/shadow.png" id="2_tkfhb"]
 [ext_resource type="Texture2D" uid="uid://i65d4msfpk4d" path="res://Assets/Enemy/crow-Sheet.png" id="3_75204"]
+[ext_resource type="Texture2D" uid="uid://bk8athx521ce7" path="res://Assets/Puf/clouds-Sheet.png" id="4_f3ios"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dt2s"]
 radius = 134.629
@@ -210,6 +211,115 @@ radius = 11.1803
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62kpf"]
 
+[sub_resource type="Animation" id="Animation_v58hh"]
+resource_name = "death"
+length = 0.56667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("puf:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("puf:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.233333, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Icon:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_mks33"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("puf:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("puf:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Icon:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_glhyc"]
+_data = {
+"RESET": SubResource("Animation_mks33"),
+"death": SubResource("Animation_v58hh")
+}
+
 [node name="Corvo" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_0fm6o")
@@ -223,6 +333,11 @@ position = Vector2(0, 1)
 texture = ExtResource("3_75204")
 hframes = 4
 frame = 2
+
+[node name="puf" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_f3ios")
+hframes = 6
 
 [node name="See_box" type="Area2D" parent="."]
 collision_layer = 0
@@ -269,9 +384,15 @@ debug_color = Color(0.293406, 0.498969, 1, 0)
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_glhyc")
+}
+
 [connection signal="area_entered" from="See_box" to="." method="_on_see_box_area_entered"]
 [connection signal="area_entered" from="Close_box" to="." method="_on_close_box_area_entered"]
 [connection signal="area_exited" from="Close_box" to="." method="_on_close_box_area_exited"]
 [connection signal="area_entered" from="Hit_box" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hurt_box" to="." method="_on_hurt_box_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]

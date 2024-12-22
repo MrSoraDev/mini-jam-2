@@ -26,6 +26,7 @@ var target_direction
 func _ready() -> void:
 	navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
 	SignalManager.on_call_pressed.connect(get_brother)
+	
 	brother = GameManager.get_player()
 	walk_cycles = randi_range(min_walk_cycle,max_walk_cycle)
 	call_deferred("character_setup")
@@ -42,6 +43,8 @@ func set_movement_target() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if actived == false and fugindo == true:
+		return
 	if hunting == false and fugindo == false:
 		velocity = Vector2.ZERO
 	
@@ -92,5 +95,9 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	fugindo = false
-	hunting = false
+	SignalManager.on_enemy_hurt.emit()
+	if fugindo == true:
+		brother.free_ufo()
+		remote_transform_2d.set_remote_node(remote_transform_2d.get_path())
+		fugindo = false
+		hunting = false

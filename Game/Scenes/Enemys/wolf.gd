@@ -8,6 +8,7 @@ var damage_push = false
 var alvo_damage = null
 var stun = false
 var damage = 3
+@onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
 
 @export var speed = 0.5
 @export var attack_jump = 2
@@ -23,6 +24,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if damage <= 0:
 		dead()
+		return
 	
 	if damage_push == true:
 		var dir = self.global_position + alvo_damage.global_position
@@ -97,7 +99,8 @@ func handle_anim_walking():
 		animation_player.play("walking_down")
 
 func dead():
-	queue_free()
+	animation_player_2.play("death")
+
 func _on_see_box_area_entered(area: Area2D) -> void:
 	alvo = area
 
@@ -129,4 +132,8 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 
 
 func _on_hole_box_area_entered(area: Area2D) -> void:
-	dead()
+	queue_free()
+
+
+func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
+	queue_free()

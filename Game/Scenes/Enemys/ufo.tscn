@@ -15,7 +15,7 @@ script = ExtResource("1_be6u7")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 4)
-collision_layer = 256
+collision_layer = 0
 collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -40,7 +40,7 @@ avoidance_enabled = true
 debug_enabled = true
 
 [node name="Hurt_box" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 128
 collision_mask = 4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurt_box"]

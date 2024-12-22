@@ -9,7 +9,8 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
-	pass
+	if brother.abducted == false:
+		transition.emit("idle")
 
 
 func _on_next_transitions() -> void:

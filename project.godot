@@ -104,6 +104,7 @@ call={
 2d_physics/layer_11="BrotherBody"
 2d_physics/layer_12="Herb"
 2d_physics/layer_13="Hole"
+2d_physics/layer_14="see_player"
 
 [rendering]
 

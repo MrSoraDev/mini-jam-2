@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Game/Scenes/components/camera_2d.gd" id="1_kc24v"]
 
 [node name="Camera2D" type="Camera2D"]
+position_smoothing_enabled = true
 script = ExtResource("1_kc24v")
 
 [node name="PlayerTimer" type="Timer" parent="."]

@@ -10,8 +10,8 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
-	print(player.player_direction)
-	print(player.looking_down)
+	#print(player.player_direction)
+	#print(player.looking_down)
 	if player.looking_down == false: #andando pra cima
 		if player.player_direction.x > 0:
 			animated_sprite_2d.play("run_up")

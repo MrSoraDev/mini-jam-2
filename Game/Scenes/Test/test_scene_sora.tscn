@@ -25,8 +25,9 @@ position = Vector2(66, 43)
 
 [node name="Brother_marker" parent="." instance=ExtResource("5_h2hcq")]
 
-[node name="Hole" parent="." instance=ExtResource("7_fvicl")]
+[node name="Hole" parent="." node_paths=PackedStringArray("maker") instance=ExtResource("7_fvicl")]
 position = Vector2(166, -18)
+maker = NodePath("../Marker2D")
 
 [node name="Sign" parent="." instance=ExtResource("8_or5qd")]
 position = Vector2(40, -12)
@@ -41,5 +42,8 @@ position = Vector2(130, 108)
 [node name="Brother" parent="." instance=ExtResource("3_yip2v")]
 position = Vector2(71.0283, 72.2901)
 
-[node name="Wolf" parent="." instance=ExtResource("9_iskou")]
-position = Vector2(-90, 32)
+[node name="Wolf2" parent="." instance=ExtResource("9_iskou")]
+position = Vector2(314, 11)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(167, 0)

@@ -19,25 +19,30 @@ var can_whistle: bool = true
 @onready var bat: Sprite2D = $BatNode/Bat
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sound: AudioStreamPlayer2D = $Sound
+@onready var stun: AnimatedSprite2D = $Stun
 
 
 
 func _ready() -> void:
 	herb_indicatior.visible = false
 	GameManager.set_player_jogavel(self)
-	
+	stun.hide()
 
 func _process(delta: float) -> void:
 	pass
 		
 
 func _physics_process(delta: float) -> void:
+	print_debug(hurt)
 	if Input.is_action_just_pressed("call") and can_whistle == true:
 		SoundManager.play_clip(sound, SoundManager.WHISTLE)
 		SignalManager.on_call_pressed.emit()
 		can_whistle = false
 		whistle_timer.start()
-
+	if hurt == true:
+		stun.show()
+	else:
+		stun.hide()
 	move()
 	#print(falling)
 	bat.look_at(get_global_mouse_position())
@@ -54,7 +59,7 @@ func is_movement_input() -> bool:
 func move() -> Vector2:
 	check_defending()
 	player_direction = Input.get_vector("left","right","up","down").normalized()
-	if falling == false or hurt == false:
+	if falling == false and hurt == false:
 		velocity.x = move_toward(velocity.x,speed * player_direction.x, accel)
 		velocity.y = move_toward(velocity.y,speed * player_direction.y, accel)
 	else:
@@ -90,7 +95,7 @@ func stop_defending() -> void:
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	print_debug("false")
+	
 	if invencible == false:
 		SignalManager.on_player_hurt.emit()
 		SoundManager.play_clip(sound, SoundManager.HURT)

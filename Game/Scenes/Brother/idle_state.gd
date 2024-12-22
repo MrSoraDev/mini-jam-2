@@ -5,7 +5,7 @@ extends NodeState
 @export var character: CharacterBody2D
 @export var animated_sprite_2d: AnimatedSprite2D
 
-@export var idle_state_timer_interval: float = 5.0
+@export var idle_state_timer_interval: float = 2.0
 @onready var idle_state_timer: Timer = Timer.new() #cria um timer filho
 
 var idle_state_timeout: bool = false

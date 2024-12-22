@@ -56,7 +56,7 @@ func _on_physics_process(_delta : float) -> void:
 
 
 func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
-	if character.falling == false and character.dead == false:
+	if character.falling == false and character.dead == false and character.abducted == false:
 		animated_sprite_2d.flip_h = safe_velocity.x < 0
 		character.velocity = safe_velocity
 		if character.velocity.y > 0:
@@ -66,6 +66,9 @@ func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 		character.move_and_slide()
 	
 func _on_next_transitions() -> void:
+	if character.abducted == true:
+		transition.emit("abducted")
+	
 	if character.falling == true:
 		transition.emit("falling")
 	

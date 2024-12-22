@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var animations: AnimationPlayer = $HurtAnimation
 @onready var sound: AudioStreamPlayer2D = $Sound
 
-
+var abducted:bool = false
 var walk_cycles: int
 var current_walk_cycle: int
 var called: bool = false
@@ -71,3 +71,6 @@ func _on_player_dectection_area_entered(area: Area2D) -> void:
 		animations.play("heal")
 		area.get_parent().herb_delivered()
 		SoundManager.play_clip(sound, SoundManager.HEAL)
+
+func free() -> void:
+	abducted = false

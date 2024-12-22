@@ -8,7 +8,7 @@
 size = Vector2(51, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbab3"]
-size = Vector2(50, 51.5)
+size = Vector2(48, 50)
 
 [sub_resource type="Animation" id="Animation_nortd"]
 length = 0.001
@@ -120,9 +120,10 @@ target_position = Vector2(-49, 0)
 [node name="Timer" type="Timer" parent="Raycasts"]
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, -1.25)
 shape = SubResource("RectangleShape2D_fbab3")
 debug_color = Color(0.937255, 0.25098, 0, 0)
 

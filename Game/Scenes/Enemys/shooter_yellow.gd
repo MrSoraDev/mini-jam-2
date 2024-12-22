@@ -5,14 +5,20 @@ extends StaticBody2D
 @export var dir = Vector2.ZERO
 const bullet = preload("res://Game/Scenes/Bullets/bullet_yellow.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+var actived = false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start(timing_bullet)
+	timer.start()
 
-
+func _process(delta: float) -> void:
+	if actived == false:
+		timer.stop()
+		return
+	
+	if timer.paused == true:
+		timer.start(timing_bullet)
 func _on_timer_timeout() -> void:
 	animation_player.play("shoot")
 

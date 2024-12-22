@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_hfhab"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_24pfk"]
 [ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="4_qtpuy"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
+[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="6_id34t"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="7_y813p"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="8_mf0bw"]

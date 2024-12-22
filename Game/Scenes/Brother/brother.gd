@@ -97,7 +97,7 @@ func save_brother_health(ignora:String):
 	GameManager.save_brother_health(health_atual)
 	#SignalManager.save_brother_health.emit(health_atual)
 
-func free() -> void:
+func free_ufo() -> void:
 	abducted = false
 	
 func ufo() -> void:

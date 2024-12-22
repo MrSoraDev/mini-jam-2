@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://bun83iok8bxh3"]
+
+[ext_resource type="Script" path="res://Game/Scenes/Object/door/puzzle_door.gd" id="1_ncqun"]
+[ext_resource type="Texture2D" uid="uid://rvpn3hvpvwcj" path="res://Assets/Object/Button.png" id="1_tuny8"]
+[ext_resource type="Texture2D" uid="uid://b2kwyg5tik87u" path="res://Assets/Object/Door.png" id="2_apudc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ycnw"]
+size = Vector2(20, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vl8pl"]
+radius = 13.0384
+
+[sub_resource type="Animation" id="Animation_guv2a"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_24mqd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibtqs"]
+_data = {
+"RESET": SubResource("Animation_24mqd"),
+"open": SubResource("Animation_guv2a")
+}
+
+[node name="PuzzleDoor" type="StaticBody2D"]
+script = ExtResource("1_ncqun")
+
+[node name="Door" type="Sprite2D" parent="."]
+texture = ExtResource("2_apudc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0ycnw")
+
+[node name="Button" type="Sprite2D" parent="."]
+position = Vector2(-71, -9)
+texture = ExtResource("1_tuny8")
+hframes = 2
+
+[node name="ButtonArea" type="Area2D" parent="Button"]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/ButtonArea"]
+position = Vector2(0, 12)
+shape = SubResource("CircleShape2D_vl8pl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ibtqs")
+}
+
+[connection signal="area_entered" from="Button/ButtonArea" to="." method="_on_button_area_area_entered"]

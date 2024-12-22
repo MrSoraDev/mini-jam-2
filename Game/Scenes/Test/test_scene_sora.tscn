@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmlsku6j41s4v"]
+[gd_scene load_steps=11 format=3 uid="uid://bmlsku6j41s4v"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_muubl"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_yip2v"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bq1035nja2wqe" path="res://Game/Scenes/Object/Signs/sign2.tscn" id="8_71n7f"]
 [ext_resource type="PackedScene" uid="uid://bv65hdla3o1wh" path="res://Game/Scenes/Object/Signs/sign.tscn" id="8_or5qd"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="9_iskou"]
+[ext_resource type="PackedScene" uid="uid://bun83iok8bxh3" path="res://Game/Scenes/Object/door/Puzzle_door.tscn" id="9_l0k6l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gjk77"]
 vertices = PackedVector2Array(-17, -16.2266, -17, 82.8281, -147.063, 94.1797, -158.867, -19.7188)
@@ -47,3 +48,6 @@ position = Vector2(314, 11)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(167, 0)
+
+[node name="PuzzleDoor" parent="." instance=ExtResource("9_l0k6l")]
+position = Vector2(39, 132)

@@ -74,3 +74,6 @@ func _on_player_dectection_area_entered(area: Area2D) -> void:
 
 func free() -> void:
 	abducted = false
+	
+func ufo() -> void:
+	abducted = true

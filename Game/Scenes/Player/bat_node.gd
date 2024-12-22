@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	rotation = rotation_angle
 	
 	if player.defending == true:
-		print_debug("aoi")
+		#print_debug("aoi")
 		bat.hide()
 	else:
 		bat.show()

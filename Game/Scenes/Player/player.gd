@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("call"):
+		SoundManager.play_clip(sound, SoundManager.WHISTLE)
 		SignalManager.on_call_pressed.emit()
 
 	move()

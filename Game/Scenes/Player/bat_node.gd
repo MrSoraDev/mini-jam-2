@@ -33,5 +33,5 @@ func _process(delta: float) -> void:
 	else:
 		bat.show()
 		
-	if Input.is_action_just_pressed("attack") and player.defending == false:
+	if Input.is_action_just_pressed("attack") and player.defending == false and player.hurt == false:
 		bat_animation.play("hit")

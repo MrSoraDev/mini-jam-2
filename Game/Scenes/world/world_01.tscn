@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b2w6i8k0boiul"]
+[gd_scene load_steps=12 format=4 uid="uid://b2w6i8k0boiul"]
 
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_iu76l"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_hfhab"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="7_y813p"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="8_mf0bw"]
 [ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="9_8vt40"]
+[ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="10_nhgsm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8gl"]
 size = Vector2(30, 99)
@@ -152,6 +153,32 @@ go_to_scene = "world2"
 [node name="CollisionShape2D" parent="ChangeScene" index="0"]
 position = Vector2(-1179, 563)
 shape = SubResource("RectangleShape2D_1q8gl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nhgsm")
+autoplay = true
+
+[connection signal="area_entered" from="TileMapLayer/Hole" to="TileMapLayer/Hole" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234812" to="TileMapLayer/@Area2D@234812" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234813" to="TileMapLayer/@Area2D@234813" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234814" to="TileMapLayer/@Area2D@234814" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234815" to="TileMapLayer/@Area2D@234815" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234816" to="TileMapLayer/@Area2D@234816" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234817" to="TileMapLayer/@Area2D@234817" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234818" to="TileMapLayer/@Area2D@234818" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234819" to="TileMapLayer/@Area2D@234819" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234820" to="TileMapLayer/@Area2D@234820" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234821" to="TileMapLayer/@Area2D@234821" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234822" to="TileMapLayer/@Area2D@234822" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234823" to="TileMapLayer/@Area2D@234823" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234824" to="TileMapLayer/@Area2D@234824" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234825" to="TileMapLayer/@Area2D@234825" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234826" to="TileMapLayer/@Area2D@234826" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234827" to="TileMapLayer/@Area2D@234827" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234828" to="TileMapLayer/@Area2D@234828" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234829" to="TileMapLayer/@Area2D@234829" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234830" to="TileMapLayer/@Area2D@234830" method="_on_area_entered"]
+[connection signal="area_entered" from="TileMapLayer/@Area2D@234831" to="TileMapLayer/@Area2D@234831" method="_on_area_entered"]
 
 [editable path="hole/Hole"]
 [editable path="hole/Hole2"]

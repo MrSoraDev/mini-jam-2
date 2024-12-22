@@ -425,7 +425,7 @@ script = ExtResource("9_tfkc0")
 script = ExtResource("10_hts3u")
 
 [node name="HurtBox" type="Area2D" parent="."]
-collision_layer = 576
+collision_layer = 512
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
@@ -483,6 +483,7 @@ libraries = {
 "": SubResource("AnimationLibrary_j0xud")
 }
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Dead" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Falling/FallingTimer" to="StateMachine/Falling" method="_on_falling_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="PlayerDectection" to="." method="_on_player_dectection_area_entered"]

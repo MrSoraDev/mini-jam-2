@@ -1,6 +1,7 @@
 extends Node
 
 var Scenes: Dictionary = {
+	"main_menu": preload("res://Game/Scenes/UI/main_menu.tscn"),
 	"world1": preload("res://Game/Scenes/world/world_01.tscn"),
 	"world2": preload("res://Game/Scenes/world/world_02.tscn"),
 	"world3": preload("res://Game/Scenes/world/world_03.tscn"),
@@ -9,6 +10,7 @@ var Scenes: Dictionary = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	SignalManager.on_scene_change.connect(on_scene_change)
 
 

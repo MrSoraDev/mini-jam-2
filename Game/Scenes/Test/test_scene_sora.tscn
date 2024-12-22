@@ -7,10 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="7_fvicl"]
 [ext_resource type="PackedScene" uid="uid://bq1035nja2wqe" path="res://Game/Scenes/Object/Signs/sign2.tscn" id="8_71n7f"]
 [ext_resource type="PackedScene" uid="uid://bv65hdla3o1wh" path="res://Game/Scenes/Object/Signs/sign.tscn" id="8_or5qd"]
-[ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="9_hstoy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv15p"]
-size = Vector2(52, 48)
+[ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="9_iskou"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/corvo.tscn" id="10_unu5w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gjk77"]
 vertices = PackedVector2Array(-17, -16.2266, -17, 82.8281, -147.063, 94.1797, -158.867, -19.7188)
@@ -24,13 +22,6 @@ y_sort_enabled = true
 y_sort_enabled = true
 position = Vector2(66, 43)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(3, 3)
-
-[node name="Brother" parent="." instance=ExtResource("3_yip2v")]
-y_sort_enabled = true
-position = Vector2(67, 74)
-
 [node name="Herb" parent="." instance=ExtResource("4_7x2w7")]
 
 [node name="Brother_marker" parent="." instance=ExtResource("5_h2hcq")]
@@ -41,14 +32,6 @@ position = Vector2(98, 13)
 [node name="Sign" parent="." instance=ExtResource("8_or5qd")]
 position = Vector2(40, -12)
 
-[node name="ChangeScene" parent="." instance=ExtResource("9_hstoy")]
-position = Vector2(145, 0)
-go_to_scene = "world1"
-
-[node name="CollisionShape2D" parent="ChangeScene" index="0"]
-position = Vector2(16, 14)
-shape = SubResource("RectangleShape2D_uv15p")
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_gjk77")
 navigation_layers = 2
@@ -56,4 +39,11 @@ navigation_layers = 2
 [node name="Sign2" parent="." instance=ExtResource("8_71n7f")]
 position = Vector2(130, 108)
 
-[editable path="ChangeScene"]
+[node name="Wolf" parent="." instance=ExtResource("9_iskou")]
+position = Vector2(-96, -53)
+
+[node name="Brother" parent="." instance=ExtResource("3_yip2v")]
+position = Vector2(71.0283, 72.2901)
+
+[node name="Corvo" parent="." instance=ExtResource("10_unu5w")]
+position = Vector2(219, -81)

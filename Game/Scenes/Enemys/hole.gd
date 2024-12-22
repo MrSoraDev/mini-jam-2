@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,3 +16,4 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	area.get_parent().falling = true
 	SignalManager.on_falling_end.emit($Marker2D.global_position)
+	SoundManager.play_clip(sound, SoundManager.FALL)

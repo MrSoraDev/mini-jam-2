@@ -6,10 +6,14 @@ var looking_down: bool = true
 var has_herb: bool = false
 var defending: bool = false
 
+var invencible: bool = false
+var hurt: bool = false
+var can_whistle: bool = true
 @export var falling: = false
 
 @export var speed = 100
 @export var accel = 10
+@onready var whistle_timer: Timer = $WhistleTimer
 
 @onready var herb_indicatior: Sprite2D = $HerbIndicatior
 @onready var bat: Sprite2D = $BatNode/Bat
@@ -27,9 +31,11 @@ func _process(delta: float) -> void:
 		
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("call"):
+	if Input.is_action_just_pressed("call") and can_whistle == true:
 		SoundManager.play_clip(sound, SoundManager.WHISTLE)
 		SignalManager.on_call_pressed.emit()
+		can_whistle = false
+		whistle_timer.start()
 
 	move()
 	#print(falling)
@@ -46,7 +52,7 @@ func is_movement_input() -> bool:
 
 func move() -> Vector2:
 	player_direction = Input.get_vector("left","right","up","down").normalized()
-	if falling == false:
+	if falling == false or hurt == false:
 		velocity.x = move_toward(velocity.x,speed * player_direction.x, accel)
 		velocity.y = move_toward(velocity.y,speed * player_direction.y, accel)
 	else:
@@ -63,8 +69,6 @@ func verify_direction() -> void:
 
 
 func _on_herb_catcher_area_entered(area: Area2D) -> void:
-	if area.collision_layer == 13:
-		print_debug("buraco")
 	herb_indicatior.visible = true
 	area.queue_free()
 	has_herb = true
@@ -81,3 +85,16 @@ func swing_bat() -> void:
 
 func stop_defending() -> void:
 	defending = false
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	print_debug("false")
+	if invencible == false:
+		SignalManager.on_player_hurt.emit()
+		SoundManager.play_clip(sound, SoundManager.HURT)
+		hurt = true
+		invencible = true
+
+
+func _on_whistle_timer_timeout() -> void:
+	can_whistle = true

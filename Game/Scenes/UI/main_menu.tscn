@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfgjhnulk5k1o"]
+[gd_scene load_steps=7 format=3 uid="uid://dfgjhnulk5k1o"]
 
 [ext_resource type="Script" path="res://Game/Scenes/UI/main_menu.gd" id="1_cntrg"]
+[ext_resource type="Texture2D" uid="uid://bg6wlbu6oj0uo" path="res://Assets/Ui/button-Sheet.png" id="2_ti30n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00gcp"]
+atlas = ExtResource("2_ti30n")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvbf4"]
+atlas = ExtResource("2_ti30n")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2iab"]
+atlas = ExtResource("2_ti30n")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5l0m"]
+atlas = ExtResource("2_ti30n")
+region = Rect2(144, 0, 48, 16)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -43,12 +60,15 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="MarginContainer/Buttons/HBoxContainer"]
+[node name="Start" type="TextureButton" parent="MarginContainer/Buttons/HBoxContainer"]
 layout_mode = 2
-text = "Start Game"
+texture_normal = SubResource("AtlasTexture_00gcp")
+texture_pressed = SubResource("AtlasTexture_tvbf4")
 
-[node name="Button2" type="Button" parent="MarginContainer/Buttons/HBoxContainer"]
+[node name="Quit" type="TextureButton" parent="MarginContainer/Buttons/HBoxContainer"]
 layout_mode = 2
-text = "Exit"
+texture_normal = SubResource("AtlasTexture_l2iab")
+texture_pressed = SubResource("AtlasTexture_x5l0m")
 
-[connection signal="pressed" from="MarginContainer/Buttons/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/HBoxContainer/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=57 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://chqi8gjjtqhm8" path="res://Assets/herb/erva-Sheet.png" id="9_dstow"]
 [ext_resource type="Script" path="res://Game/Scenes/Player/shield_node.gd" id="13_2kq6s"]
 [ext_resource type="Texture2D" uid="uid://b303qffyddv7q" path="res://Assets/weapon/shield-Sheet.png" id="14_3ibd1"]
+[ext_resource type="PackedScene" uid="uid://c6vr8mrk7co7q" path="res://Game/Scenes/components/camera_2d.tscn" id="15_cxdvm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hdlee"]
 radius = 7.28011
@@ -399,6 +400,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_rfryc"]
 resource_name = "defend"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -406,7 +408,7 @@ tracks/0/path = NodePath("Shield:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.9),
+"times": PackedFloat32Array(0, 0.2, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.660318, 0.381202, 4.81307e-07, 1), Color(1, 1, 1, 1), Color(0.658824, 0.380392, 0, 1)]
@@ -418,7 +420,7 @@ tracks/1/path = NodePath("CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -430,7 +432,7 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.9),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -444,7 +446,7 @@ tracks/3/path = NodePath("Shield")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.9),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -654,8 +656,6 @@ collision_mask = 2048
 shape = SubResource("CircleShape2D_uk3cv")
 debug_color = Color(0.275485, 0.632017, 0, 0.42)
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="."]
-
 [node name="BatNode" type="Node2D" parent="."]
 script = ExtResource("7_edj2m")
 
@@ -716,6 +716,17 @@ libraries = {
 "": SubResource("AnimationLibrary_0ge8j")
 }
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Camera2D" parent="." instance=ExtResource("15_cxdvm")]
+zoom = Vector2(2, 2)
+
+[node name="WhistleTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
 [connection signal="timeout" from="StateMachine/Falling/FallingTimer" to="StateMachine/Falling" method="_on_falling_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_entered" from="HerbCatcher" to="." method="_on_herb_catcher_area_entered"]
+[connection signal="timeout" from="WhistleTimer" to="." method="_on_whistle_timer_timeout"]

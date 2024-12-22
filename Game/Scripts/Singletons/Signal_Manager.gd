@@ -11,3 +11,7 @@ signal on_scene_change(scene_name:String)
 signal on_brother_hurt()
 
 signal on_hud_game_over()
+
+signal on_player_hurt()
+
+signal on_enemy_hurt()

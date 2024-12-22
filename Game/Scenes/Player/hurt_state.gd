@@ -3,6 +3,7 @@ extends NodeState
 @onready var player_animation: AnimationPlayer = $"../../PlayerAnimation"
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var hurt_timer: Timer = $HurtTimer
+@onready var player: Player = $"../.."
 
 func _on_process(_delta : float) -> void:
 	pass
@@ -31,3 +32,5 @@ func _on_exit() -> void:
 func _on_hurt_timer_timeout() -> void:
 	#player_animation.play("RESET")
 	transition.emit("idle")
+	player.hurt = false
+	player.invencible = false

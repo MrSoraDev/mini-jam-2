@@ -5,13 +5,17 @@ const HEAL = "heal"
 const HIT = "hit"
 const HURT = "hurt"
 const WHISTLE = "whistle"
+const FALL = "fall"
+const GAME_OVER = "game_over"
 
 var SOUNDS: Dictionary = {
 	BATSWING: preload("res://Assets/Sound/swing.mp3"), #preloads
 	HEAL: preload("res://Assets/Sound/brother_heal.wav"),
 	HIT: "hit", #enemey hitted
 	HURT: preload("res://Assets/Sound/brother_hurt.wav"),
-	WHISTLE : preload("res://Assets/Sound/whistle.mp3")
+	WHISTLE : preload("res://Assets/Sound/whistle.mp3"),
+	FALL: preload("res://Assets/Sound/fall2.mp3"),
+	GAME_OVER: preload("res://Assets/Sound/game_over.mp3")
 }
 
 func play_clip(player: AudioStreamPlayer2D, clip_key: String) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://lrv352046fas"]
+[gd_scene load_steps=58 format=3 uid="uid://lrv352046fas"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Player/player.gd" id="1_3i46q"]
 [ext_resource type="Texture2D" uid="uid://3vp4mm8gsylr" path="res://Assets/Player/protag-Sheet.png" id="2_1b5ue"]
@@ -527,6 +527,9 @@ _data = {
 "shinking": SubResource("Animation_h08um")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1mnbf"]
+radius = 11.4018
+
 [node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
 collision_layer = 2
 script = ExtResource("1_3i46q")
@@ -669,6 +672,13 @@ zoom = Vector2(2, 2)
 [node name="WhistleTimer" type="Timer" parent="."]
 wait_time = 20.0
 one_shot = true
+
+[node name="player_see_box" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_see_box"]
+shape = SubResource("CircleShape2D_1mnbf")
 
 [connection signal="timeout" from="StateMachine/Falling/FallingTimer" to="StateMachine/Falling" method="_on_falling_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]

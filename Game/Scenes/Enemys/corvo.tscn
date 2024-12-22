@@ -267,7 +267,7 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_62kpf")
 debug_color = Color(0.293406, 0.498969, 1, 0)
 
-[node name="sound" type="AudioStreamPlayer2D" parent="."]
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="See_box" to="." method="_on_see_box_area_entered"]
 [connection signal="area_entered" from="Close_box" to="." method="_on_close_box_area_entered"]

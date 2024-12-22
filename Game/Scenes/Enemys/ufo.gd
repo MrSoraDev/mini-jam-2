@@ -10,7 +10,7 @@ var walk_cycles: int
 var current_walk_cycle: int
 
 var speed_hunting = 2
-var speed 
+var speed = 25
 #var min_speed
 #var max_speed
 var player = null
@@ -18,8 +18,8 @@ var player = null
 @export var hunting:bool = false
 @export var fugindo:bool = false
 var brother: CharacterBody2D = null
-
-
+var target_position 
+var target_direction
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var remote_transform_2d: RemoteTransform2D = $RemoteTransform2D
 
@@ -33,7 +33,8 @@ func _ready() -> void:
 func character_setup() -> void:
 	await get_tree().physics_frame
 	set_movement_target()
-	
+
+
 func set_movement_target() -> void:
 	var target_position: Vector2 = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(),navigation_agent_2d.navigation_layers,false)
 	navigation_agent_2d.target_position = target_position
@@ -41,18 +42,21 @@ func set_movement_target() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	if navigation_agent_2d.is_navigation_finished() and fugindo == false:
+	if navigation_agent_2d.is_navigation_finished():
 		current_walk_cycle += 1
 		set_movement_target()
-		
+	
 	
 	if hunting == true:
 		var dir = brother.global_position - self.global_position
-		velocity = dir * speed
+		velocity = dir * speed_hunting
+	
 	
 	if fugindo == true:
-		pass
-		
+		target_position = navigation_agent_2d.get_next_path_position()
+		target_direction = global_position.direction_to(target_position)
+		velocity = target_direction * speed
+	
 	move_and_slide()
 
 func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
@@ -60,11 +64,14 @@ func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 		move_and_slide()
 
 func get_brother():
-	if actived == true:
+	if actived == true and fugindo == false:
 		hunting = true
-
+		
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	area.get_parent().ufo()
+	remote_transform_2d.remote_path = area.get_parent().get_path()
+	
 	hunting = false
 	fugindo = true
 
@@ -75,3 +82,7 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	actived = false
+
+
+func _on_navigation_agent_2d_navigation_finished() -> void:
+	print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")

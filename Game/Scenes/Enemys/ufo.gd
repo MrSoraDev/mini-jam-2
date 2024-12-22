@@ -42,10 +42,12 @@ func set_movement_target() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if hunting == false and fugindo == false:
+		velocity = Vector2.ZERO
+	
 	if navigation_agent_2d.is_navigation_finished():
 		current_walk_cycle += 1
 		set_movement_target()
-	
 	
 	if hunting == true:
 		var dir = brother.global_position - self.global_position
@@ -85,4 +87,10 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
-	print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+	#print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+	pass
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	fugindo = false
+	hunting = false

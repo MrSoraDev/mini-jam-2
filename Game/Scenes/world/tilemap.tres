@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://b3ks7piisyh4v"]
 
 [ext_resource type="Texture2D" uid="uid://c0ygolomwy18g" path="res://Assets/Tilemap/Tileset.png" id="1_ujavr"]
-[ext_resource type="PackedScene" uid="uid://d3alowxymj6cc" path="res://Game/Scenes/Enemys/hole.tscn" id="2_ntd06"]
+[ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="2_ntd06"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysajr"]
 texture = ExtResource("1_ujavr")

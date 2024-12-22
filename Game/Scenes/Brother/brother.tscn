@@ -352,7 +352,6 @@ _data = {
 collision_layer = 1026
 collision_mask = 1027
 script = ExtResource("1_orvyp")
-abducted = true
 
 [node name="Shadow" type="Sprite2D" parent="."]
 position = Vector2(0, 3)

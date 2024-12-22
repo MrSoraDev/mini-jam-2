@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3alowxymj6cc"]
+[gd_scene load_steps=3 format=3 uid="uid://cn3en7kguydmf"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/hole.gd" id="1_00gfu"]
 [ext_resource type="Texture2D" uid="uid://c1a51hcrumcqm" path="res://Assets/Tilemap/pitfall.png" id="2_woova"]

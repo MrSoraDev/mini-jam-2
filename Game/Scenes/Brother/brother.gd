@@ -18,28 +18,46 @@ var invencible: bool = false
 var falling: bool = false
 var dead: bool = false
 var health_atual: float
+var venon_force: float = 0.1
 
 func _ready() -> void:
 	GameManager.set_player(self)
 	walk_cycles = randi_range(min_walk_cycle,max_walk_cycle)
 	SignalManager.on_call_pressed.connect(on_call_pressed)
 	SignalManager.on_brother_dead.connect(on_brother_dead)
-	health = GameManager.get_brother_health() #pq ja vai estar como max no game manager
+	SignalManager.change_brother_health.connect(change_brother_health)
+	health_atual = GameManager.get_brother_health()
+	SignalManager.on_scene_change.connect(save_brother_health)
+	#health = GameManager.get_brother_health() #pq ja vai estar como max no game manager
 	progress_bar.max_value = GameManager.get_brother_max_health()
 	progress_bar.value = GameManager.get_brother_health()
 	
 	
 
 func _process(delta: float) -> void:
-	health_atual = GameManager.get_brother_health()
-	progress_bar.value = health_atual
-	if health_atual <=0:
+	if health_atual <=0 :#
+		health_atual = 0#
 		dead = true
+	else:#
+		health_atual -= venon_force#
+	
+	#health_atual = GameManager.get_brother_health()
+	progress_bar.value = health_atual
+
+		
+	
 	#progress_bar.value = GameManager.get_brother_health()
 	
 
+func change_brother_health(amount:float) -> void:
+	health_atual += amount
+	if health_atual <= 0:
+		on_brother_dead()
+		#SignalManager.on_brother_dead.emit()
+	elif health_atual >= GameManager.brother_max_health:
+		health_atual = GameManager.brother_max_health
+
 func on_call_pressed() -> void:
-	#print_debug("apertou")
 	called = true
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
@@ -67,10 +85,16 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 
 func _on_player_dectection_area_entered(area: Area2D) -> void:
 	if area.get_parent().have_herb():
-		GameManager.change_brother_health(200.0)
+		change_brother_health(200.0)
+		
+		#GameManager.change_brother_health(200.0)
 		animations.play("heal")
 		area.get_parent().herb_delivered()
 		SoundManager.play_clip(sound, SoundManager.HEAL)
+
+func save_brother_health(ignora:String):
+	GameManager.save_brother_health(health_atual)
+	#SignalManager.save_brother_health.emit(health_atual)
 
 func free() -> void:
 	abducted = false

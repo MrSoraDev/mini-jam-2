@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwwric534lkqv"]
+[gd_scene load_steps=3 format=3 uid="uid://gxynls3vvkon"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Brother/brother_marker.gd" id="1_4v1p3"]
 [ext_resource type="Texture2D" uid="uid://6hluhi07c77p" path="res://Assets/Brother/maker.png" id="2_n20rx"]

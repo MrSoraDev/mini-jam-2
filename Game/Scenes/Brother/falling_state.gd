@@ -30,7 +30,8 @@ func _on_next_transitions() -> void:
 func _on_enter() -> void:
 	animated_sprite_2d.play("falling") #girando
 	brother_animation.play("shinking") #diminuindo
-	GameManager.change_brother_health(-200)
+	SignalManager.change_brother_health.emit(-200)
+	#GameManager.change_brother_health(-200)
 	falling_timer.start()
 
 func _on_exit() -> void:

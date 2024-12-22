@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmlsku6j41s4v"]
+[gd_scene load_steps=9 format=3 uid="uid://bmlsku6j41s4v"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_muubl"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_yip2v"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="4_7x2w7"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Brother/brother_marker.tscn" id="5_h2hcq"]
+[ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="5_h2hcq"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="7_fvicl"]
 [ext_resource type="PackedScene" uid="uid://bq1035nja2wqe" path="res://Game/Scenes/Object/Signs/sign2.tscn" id="8_71n7f"]
 [ext_resource type="PackedScene" uid="uid://bv65hdla3o1wh" path="res://Game/Scenes/Object/Signs/sign.tscn" id="8_or5qd"]
-[ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="9_iskou"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/corvo.tscn" id="10_unu5w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gjk77"]
 vertices = PackedVector2Array(-17, -16.2266, -17, 82.8281, -147.063, 94.1797, -158.867, -19.7188)
@@ -27,7 +25,7 @@ position = Vector2(66, 43)
 [node name="Brother_marker" parent="." instance=ExtResource("5_h2hcq")]
 
 [node name="Hole" parent="." instance=ExtResource("7_fvicl")]
-position = Vector2(98, 13)
+position = Vector2(166, -18)
 
 [node name="Sign" parent="." instance=ExtResource("8_or5qd")]
 position = Vector2(40, -12)
@@ -39,11 +37,5 @@ navigation_layers = 2
 [node name="Sign2" parent="." instance=ExtResource("8_71n7f")]
 position = Vector2(130, 108)
 
-[node name="Wolf" parent="." instance=ExtResource("9_iskou")]
-position = Vector2(-96, -53)
-
 [node name="Brother" parent="." instance=ExtResource("3_yip2v")]
 position = Vector2(71.0283, 72.2901)
-
-[node name="Corvo" parent="." instance=ExtResource("10_unu5w")]
-position = Vector2(219, -81)

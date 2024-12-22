@@ -382,7 +382,7 @@ shape = SubResource("CircleShape2D_5pb2d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lmut8")
-animation = &"die"
+animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="HurtAnimation" type="AnimationPlayer" parent="."]
@@ -404,6 +404,8 @@ script = ExtResource("4_b0cuk")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 navigation_agent_2d = NodePath("../../NavigationAgent2D")
+min_speed = null
+max_speed = null
 
 [node name="Shoot" type="Node" parent="StateMachine"]
 
@@ -474,6 +476,8 @@ scale = Vector2(0.5, 0.5)
 theme_override_constants/outline_size = 3
 theme_override_styles/background = SubResource("StyleBoxTexture_mnaqh")
 theme_override_styles/fill = SubResource("StyleBoxTexture_688r4")
+max_value = 1000.0
+step = 0.1
 value = 14.0
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]

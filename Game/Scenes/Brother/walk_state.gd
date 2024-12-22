@@ -6,6 +6,7 @@ extends NodeState
 @export var min_speed: float = 20
 @export var max_speed: float = 30
 
+#@onready var maker: Node2D = $"../../Brother_marker"
 
 var maker: Node2D = null
 
@@ -25,6 +26,7 @@ func set_movement_target() -> void:
 	var target_position: Vector2 = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(),navigation_agent_2d.navigation_layers,false)
 	maker = GameManager.get_maker()
 	maker.set_pos(target_position)
+	
 	#sprite_2d.global_position = target_position
 	#navigation_agent_2d.target_position = sprite_2d.global_position
 	navigation_agent_2d.target_position = target_position
@@ -50,7 +52,8 @@ func _on_physics_process(_delta : float) -> void:
 	else:
 		character.velocity = velocity
 		character.move_and_slide()
-		
+	
+	
 
 
 func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
@@ -59,11 +62,18 @@ func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
 		character.velocity = safe_velocity
 		if character.velocity.y > 0:
 			animated_sprite_2d.play("walk_down")
-		else: 
+		
+		elif character.velocity.y < 0:
 			animated_sprite_2d.play("walk_up")
 		character.move_and_slide()
+		#else: 
+			#elif character.velocity.y < 0:
+			#animated_sprite_2d.play("walk_up")	
 	
 func _on_next_transitions() -> void:
+	if character.dead == true:
+		transition.emit("dead")
+	
 	if character.abducted == true:
 		transition.emit("abducted")
 	
@@ -81,7 +91,7 @@ func on_brother_hurt():
 	set_movement_target()
 	
 func _on_enter() -> void:
-	
+	#print_debug("run")
 	character.current_walk_cycle = 0
 
 func _on_exit() -> void:

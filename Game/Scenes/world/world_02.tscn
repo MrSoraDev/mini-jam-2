@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://dycfvglc30rc3"]
+[gd_scene load_steps=9 format=4 uid="uid://dap76d47s5xkw"]
 
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_nw842"]
-[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="2_qljws"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="2_qljws"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="3_55gcy"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="4_wl5dq"]
-[ext_resource type="PackedScene" uid="uid://bwwric534lkqv" path="res://Game/Scenes/Brother/brother_marker.tscn" id="5_u5e46"]
+[ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="5_u5e46"]
 [ext_resource type="PackedScene" uid="uid://c045mi8spuru2" path="res://Game/Scenes/Enemys/amassador.tscn" id="6_7mx1h"]
-[ext_resource type="PackedScene" uid="uid://d3alowxymj6cc" path="res://Game/Scenes/Enemys/hole.tscn" id="7_2speo"]
+[ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="7_2speo"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="8_78po2"]
 
 [node name="world_02" type="Node2D"]

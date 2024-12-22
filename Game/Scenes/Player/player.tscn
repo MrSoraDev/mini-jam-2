@@ -690,6 +690,7 @@ libraries = {
 }
 
 [node name="ShieldNode" type="StaticBody2D" parent="."]
+visible = false
 script = ExtResource("13_2kq6s")
 
 [node name="Shield" type="Sprite2D" parent="ShieldNode"]

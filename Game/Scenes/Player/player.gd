@@ -21,6 +21,7 @@ var can_whistle: bool = true
 @onready var sound: AudioStreamPlayer2D = $Sound
 
 
+
 func _ready() -> void:
 	herb_indicatior.visible = false
 	GameManager.set_player_jogavel(self)

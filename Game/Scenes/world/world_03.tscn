@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://bpdcb1456s50g"]
+[gd_scene load_steps=5 format=4 uid="uid://bmx1a1ekqq0hs"]
 
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_rp35r"]
-[ext_resource type="PackedScene" uid="uid://d3alowxymj6cc" path="res://Game/Scenes/Enemys/hole.tscn" id="2_m2g1l"]
-[ext_resource type="PackedScene" uid="uid://s5yyvldpkcja" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="2_nmhwa"]
-[ext_resource type="PackedScene" uid="uid://dugljdma8imtv" path="res://Game/Scenes/Enemys/corvo.tscn" id="3_mnuaf"]
+[ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="2_m2g1l"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="2_nmhwa"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/corvo.tscn" id="3_mnuaf"]
 
 [node name="world_03" type="Node2D"]
 

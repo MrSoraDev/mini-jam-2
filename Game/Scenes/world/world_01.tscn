@@ -158,28 +158,6 @@ shape = SubResource("RectangleShape2D_1q8gl")
 stream = ExtResource("10_nhgsm")
 autoplay = true
 
-[connection signal="area_entered" from="TileMapLayer/Hole" to="TileMapLayer/Hole" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234812" to="TileMapLayer/@Area2D@234812" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234813" to="TileMapLayer/@Area2D@234813" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234814" to="TileMapLayer/@Area2D@234814" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234815" to="TileMapLayer/@Area2D@234815" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234816" to="TileMapLayer/@Area2D@234816" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234817" to="TileMapLayer/@Area2D@234817" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234818" to="TileMapLayer/@Area2D@234818" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234819" to="TileMapLayer/@Area2D@234819" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234820" to="TileMapLayer/@Area2D@234820" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234821" to="TileMapLayer/@Area2D@234821" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234822" to="TileMapLayer/@Area2D@234822" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234823" to="TileMapLayer/@Area2D@234823" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234824" to="TileMapLayer/@Area2D@234824" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234825" to="TileMapLayer/@Area2D@234825" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234826" to="TileMapLayer/@Area2D@234826" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234827" to="TileMapLayer/@Area2D@234827" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234828" to="TileMapLayer/@Area2D@234828" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234829" to="TileMapLayer/@Area2D@234829" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234830" to="TileMapLayer/@Area2D@234830" method="_on_area_entered"]
-[connection signal="area_entered" from="TileMapLayer/@Area2D@234831" to="TileMapLayer/@Area2D@234831" method="_on_area_entered"]
-
 [editable path="hole/Hole"]
 [editable path="hole/Hole2"]
 [editable path="hole/Hole3"]

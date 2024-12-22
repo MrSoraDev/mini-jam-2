@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmlsku6j41s4v"]
+[gd_scene load_steps=10 format=3 uid="uid://bmlsku6j41s4v"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_muubl"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_yip2v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="7_fvicl"]
 [ext_resource type="PackedScene" uid="uid://bq1035nja2wqe" path="res://Game/Scenes/Object/Signs/sign2.tscn" id="8_71n7f"]
 [ext_resource type="PackedScene" uid="uid://bv65hdla3o1wh" path="res://Game/Scenes/Object/Signs/sign.tscn" id="8_or5qd"]
+[ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="9_iskou"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gjk77"]
 vertices = PackedVector2Array(-17, -16.2266, -17, 82.8281, -147.063, 94.1797, -158.867, -19.7188)
@@ -39,3 +40,6 @@ position = Vector2(130, 108)
 
 [node name="Brother" parent="." instance=ExtResource("3_yip2v")]
 position = Vector2(71.0283, 72.2901)
+
+[node name="Wolf" parent="." instance=ExtResource("9_iskou")]
+position = Vector2(-90, 32)

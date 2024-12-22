@@ -265,6 +265,8 @@ libraries = {
 "": SubResource("AnimationLibrary_v08xw")
 }
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="area_entered" from="See_box" to="." method="_on_see_box_area_entered"]
 [connection signal="area_entered" from="Close_box" to="." method="_on_close_box_area_entered"]
 [connection signal="area_exited" from="Close_box" to="." method="_on_close_box_area_exited"]

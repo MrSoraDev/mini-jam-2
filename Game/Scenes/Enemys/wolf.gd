@@ -8,12 +8,14 @@ var damage_push = false
 var alvo_damage = null
 var stun = false
 var damage = 3
+
 @export var speed = 0.5
 @export var attack_jump = 2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var icon: Sprite2D = $Icon
 @onready var timer: Timer = $Timer
 var stun_timer = 0.5
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 func _ready() -> void:
 	animation_player.play("idle_up")
@@ -117,6 +119,8 @@ func _on_timer_timeout() -> void:
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
+	SoundManager.play_clip(sound, SoundManager.ENEMY_HURT)
+	SignalManager.on_enemy_hurt.emit()
 	animation_player.play("HIT")
 	damage = damage - 1
 	push = true

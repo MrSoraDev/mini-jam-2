@@ -738,7 +738,7 @@ libraries = {
 zoom = Vector2(2, 2)
 
 [node name="WhistleTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 10.0
 one_shot = true
 
 [node name="player_see_box" type="Area2D" parent="."]

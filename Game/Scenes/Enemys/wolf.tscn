@@ -379,7 +379,7 @@ shape = SubResource("CircleShape2D_gq185")
 
 [node name="Hit_box" type="Area2D" parent="."]
 collision_layer = 64
-collision_mask = 64
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box"]
 shape = SubResource("CircleShape2D_tamxh")

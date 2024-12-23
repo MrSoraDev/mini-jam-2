@@ -414,8 +414,6 @@ script = ExtResource("4_b0cuk")
 character = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 navigation_agent_2d = NodePath("../../NavigationAgent2D")
-min_speed = null
-max_speed = null
 
 [node name="Shoot" type="Node" parent="StateMachine"]
 

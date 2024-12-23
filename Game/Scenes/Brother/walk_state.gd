@@ -3,8 +3,8 @@ extends NodeState
 @export var character: Brother
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var navigation_agent_2d: NavigationAgent2D
-@export var min_speed: float = 20
-@export var max_speed: float = 30
+@export var min_speed: float = 50
+@export var max_speed: float = 70
 
 #@onready var maker: Node2D = $"../../Brother_marker"
 

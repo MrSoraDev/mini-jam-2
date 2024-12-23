@@ -35,6 +35,21 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	pass
+	#if health_atual <=0 :#
+		#health_atual = 0#
+		#dead = true
+	#else:#
+		#health_atual -= venon_force#
+	#
+	##health_atual = GameManager.get_brother_health()
+	#progress_bar.value = health_atual
+
+		
+	
+	#progress_bar.value = GameManager.get_brother_health()
+
+func _physics_process(delta: float) -> void:
 	if health_atual <=0 :#
 		health_atual = 0#
 		dead = true
@@ -43,11 +58,6 @@ func _process(delta: float) -> void:
 	
 	#health_atual = GameManager.get_brother_health()
 	progress_bar.value = health_atual
-
-		
-	
-	#progress_bar.value = GameManager.get_brother_health()
-	
 
 func change_brother_health(amount:float) -> void:
 	health_atual += amount

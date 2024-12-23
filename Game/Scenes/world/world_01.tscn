@@ -4,23 +4,23 @@
 [ext_resource type="PackedScene" uid="uid://bq1035nja2wqe" path="res://Game/Scenes/Object/Signs/sign2.tscn" id="2_3y1ml"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_hfhab"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_24pfk"]
-[ext_resource type="PackedScene" uid="uid://4pv3klbd2647" path="res://Game/Scenes/Object/Signs/sign3.tscn" id="3_em62h"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign3.tscn" id="3_em62h"]
 [ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="4_qtpuy"]
-[ext_resource type="PackedScene" uid="uid://ckdbu1eqyync7" path="res://Game/Scenes/Object/Signs/sign4.tscn" id="4_xl6w3"]
-[ext_resource type="PackedScene" uid="uid://biy04gvrlcbeg" path="res://Game/Scenes/Object/Signs/sign5.tscn" id="5_j128l"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign4.tscn" id="4_xl6w3"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign5.tscn" id="5_j128l"]
+[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="6_id34t"]
-[ext_resource type="PackedScene" uid="uid://q6vhjeyx76vw" path="res://Game/Scenes/Object/Signs/sign6.tscn" id="6_uvr1x"]
-[ext_resource type="PackedScene" uid="uid://46egyju020op" path="res://Game/Scenes/Object/Signs/sign7.tscn" id="7_u7g0q"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign6.tscn" id="6_uvr1x"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign7.tscn" id="7_u7g0q"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="7_y813p"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="8_mf0bw"]
 [ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="9_8vt40"]
 [ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="10_nhgsm"]
-[ext_resource type="PackedScene" uid="uid://bojmkqtmt2dtk" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_soqr1"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_soqr1"]
 [ext_resource type="PackedScene" uid="uid://w2xdwypagml8" path="res://Game/Scenes/transition/ufo_transition_screen.tscn" id="13_xixjq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8gl"]
-size = Vector2(47, 99)
+size = Vector2(29, 31)
 
 [node name="world_01" type="Node2D"]
 
@@ -375,7 +375,7 @@ position = Vector2(1420, -459)
 go_to_scene = "world2"
 
 [node name="CollisionShape2D" parent="ChangeScene" index="0"]
-position = Vector2(10.5, 3)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_1q8gl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

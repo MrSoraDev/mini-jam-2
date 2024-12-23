@@ -36,6 +36,7 @@ tile_map_data = PackedByteArray("AAAMABQAAAADAA0AAAANABQAAAAEAA0AAAAKABQAAAADAA0
 tile_set = ExtResource("1_2p5k2")
 
 [node name="Player" parent="." instance=ExtResource("2_8ws5n")]
+z_index = 0
 position = Vector2(855, -17)
 
 [node name="Brother" parent="." instance=ExtResource("3_4ilwl")]

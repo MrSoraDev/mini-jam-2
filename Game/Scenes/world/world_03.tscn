@@ -1,17 +1,18 @@
-[gd_scene load_steps=15 format=4 uid="uid://bmx1a1ekqq0hs"]
+[gd_scene load_steps=16 format=4 uid="uid://bmx1a1ekqq0hs"]
 
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_rp35r"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="2_m2g1l"]
-[ext_resource type="PackedScene" uid="uid://s5yyvldpkcja" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="2_nmhwa"]
-[ext_resource type="PackedScene" uid="uid://dugljdma8imtv" path="res://Game/Scenes/Enemys/corvo.tscn" id="3_mnuaf"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="2_nmhwa"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/corvo.tscn" id="3_mnuaf"]
 [ext_resource type="PackedScene" uid="uid://cfwul70ce22l1" path="res://Game/Scenes/Enemys/ufo.tscn" id="4_af824"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="5_71n3y"]
 [ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="7_w7di7"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="8_au1yn"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="9_bxj1g"]
 [ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="10_vtt1d"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_5xhvv"]
+[ext_resource type="PackedScene" uid="uid://bojmkqtmt2dtk" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_5xhvv"]
 [ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="12_phn43"]
+[ext_resource type="PackedScene" uid="uid://w2xdwypagml8" path="res://Game/Scenes/transition/ufo_transition_screen.tscn" id="12_qwgwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhjgq"]
 size = Vector2(44, 64)
@@ -260,10 +261,14 @@ navigation_layers = 2
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GameOverScreen" parent="." instance=ExtResource("11_5xhvv")]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_phn43")
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UfoTransitionScreen" parent="CanvasLayer" instance=ExtResource("12_qwgwj")]
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("11_5xhvv")]
 
 [editable path="ChangeScene"]

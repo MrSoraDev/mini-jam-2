@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cjvolvr4gyvhu"]
+[gd_scene load_steps=16 format=4 uid="uid://cjvolvr4gyvhu"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="1_g1heb"]
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_vwr15"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="12_602yj"]
 [ext_resource type="PackedScene" uid="uid://bojmkqtmt2dtk" path="res://Game/Scenes/UI/game_over_screen.tscn" id="13_k4d7u"]
 [ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="14_3v24c"]
+[ext_resource type="PackedScene" uid="uid://w2xdwypagml8" path="res://Game/Scenes/transition/ufo_transition_screen.tscn" id="14_kxxef"]
 [ext_resource type="PackedScene" uid="uid://cml6wae6m2ek6" path="res://Game/Scenes/Object/Signs/sign8.tscn" id="14_lia0y"]
 
 [node name="world_5" type="Node2D"]
@@ -146,8 +147,6 @@ position = Vector2(440, 697)
 [node name="Herb3" parent="." instance=ExtResource("12_602yj")]
 position = Vector2(975, 429)
 
-[node name="GameOverScreen" parent="." instance=ExtResource("13_k4d7u")]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_3v24c")
 autoplay = true
@@ -155,6 +154,12 @@ autoplay = true
 [node name="Sign2" parent="." instance=ExtResource("14_lia0y")]
 position = Vector2(779, 901)
 texto = "Use the shield to push your brother to the switch"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UfoTransitionScreen" parent="CanvasLayer" instance=ExtResource("14_kxxef")]
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("13_k4d7u")]
 
 [editable path="PuzzleDoor"]
 [editable path="PuzzleDoor3"]

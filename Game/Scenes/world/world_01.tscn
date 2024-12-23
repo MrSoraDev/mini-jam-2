@@ -382,9 +382,11 @@ shape = SubResource("RectangleShape2D_1q8gl")
 stream = ExtResource("10_nhgsm")
 autoplay = true
 
-[node name="GameOverScreen" parent="." instance=ExtResource("11_soqr1")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UfoTransitionScreen" parent="." instance=ExtResource("13_xixjq")]
+[node name="UfoTransitionScreen" parent="CanvasLayer" instance=ExtResource("13_xixjq")]
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("11_soqr1")]
 
 [node name="Herb2" parent="." instance=ExtResource("7_y813p")]
 position = Vector2(78, -72)

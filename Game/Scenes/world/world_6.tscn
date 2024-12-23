@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://bfoofqgwvy7rk"]
+[gd_scene load_steps=10 format=4 uid="uid://c0e84nvfwhkuo"]
 
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_vydoo"]
 [ext_resource type="PackedScene" uid="uid://bun83iok8bxh3" path="res://Game/Scenes/Object/door/Puzzle_door.tscn" id="2_plihy"]
 [ext_resource type="PackedScene" uid="uid://cfwul70ce22l1" path="res://Game/Scenes/Enemys/ufo.tscn" id="3_2rm42"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="4_nt86h"]
-[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_1aafb"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_1aafb"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="6_0d0w2"]
+[ext_resource type="PackedScene" uid="uid://w2xdwypagml8" path="res://Game/Scenes/transition/ufo_transition_screen.tscn" id="7_h3tny"]
+[ext_resource type="PackedScene" uid="uid://bojmkqtmt2dtk" path="res://Game/Scenes/UI/game_over_screen.tscn" id="8_5eitt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bhni0"]
 vertices = PackedVector2Array(506.383, 318.859, 314.594, 316.141, 319.43, 234, 509.609, 234)
@@ -82,6 +84,12 @@ dir = Vector2(0, 1)
 
 [node name="Herb" parent="." instance=ExtResource("6_0d0w2")]
 position = Vector2(467, 133)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UfoTransitionScreen" parent="CanvasLayer" instance=ExtResource("7_h3tny")]
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("8_5eitt")]
 
 [editable path="PuzzleDoor"]
 [editable path="PuzzleDoor2"]

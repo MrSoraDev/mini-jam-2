@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvtx8hxgd5vku"]
+
+[ext_resource type="Script" path="res://canvas_layer.gd" id="1_pe8er"]
+[ext_resource type="Texture2D" uid="uid://dhljvn6ppvxc5" path="res://Assets/Endscene/00_0_-_Copy.png" id="2_mjgxi"]
+[ext_resource type="Texture2D" uid="uid://dmsyjtst6a1ri" path="res://Assets/Endscene/sora.png" id="3_586kc"]
+[ext_resource type="Texture2D" uid="uid://cywyximyr12r8" path="res://Assets/Endscene/scaler_scaled_65x_pngcrushed.png" id="4_kohsp"]
+
+[node name="End_layer" type="CanvasLayer"]
+script = ExtResource("1_pe8er")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 544.0
+offset_top = 663.0
+offset_right = 788.0
+offset_bottom = 686.0
+text = "Made by:"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 460.0
+offset_top = 736.0
+offset_right = 704.0
+offset_bottom = 759.0
+text = "Art by : Matheus Rufino - mattrdl"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 460.0
+offset_top = 1265.0
+offset_right = 704.0
+offset_bottom = 1288.0
+text = "Made by: MrSoraDev"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 460.0
+offset_top = 1746.0
+offset_right = 704.0
+offset_bottom = 1769.0
+text = "Made by: Yris"
+
+[node name="000-Copy" type="Sprite2D" parent="."]
+position = Vector2(583, 927)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_mjgxi")
+
+[node name="Sora" type="Sprite2D" parent="."]
+position = Vector2(572, 1478)
+scale = Vector2(4, 4)
+texture = ExtResource("3_586kc")
+
+[node name="ScalerScaled65xPngcrushed" type="Sprite2D" parent="."]
+position = Vector2(585, 1938)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_kohsp")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

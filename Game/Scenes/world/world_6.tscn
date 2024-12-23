@@ -1,12 +1,17 @@
-[gd_scene load_steps=9 format=4 uid="uid://bfoofqgwvy7rk"]
+[gd_scene load_steps=14 format=4 uid="uid://bfoofqgwvy7rk"]
 
+[ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="1_f58sj"]
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_vydoo"]
+[ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="2_0p5r0"]
 [ext_resource type="PackedScene" uid="uid://bun83iok8bxh3" path="res://Game/Scenes/Object/door/Puzzle_door.tscn" id="2_plihy"]
 [ext_resource type="PackedScene" uid="uid://cfwul70ce22l1" path="res://Game/Scenes/Enemys/ufo.tscn" id="3_2rm42"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="4_nt86h"]
 [ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_1aafb"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="6_0d0w2"]
 [ext_resource type="PackedScene" uid="uid://s5yyvldpkcja" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="7_1l332"]
+[ext_resource type="Script" path="res://Game/Scenes/Object/Herbs/herb.gd" id="7_1txj6"]
+[ext_resource type="PackedScene" uid="uid://bvtx8hxgd5vku" path="res://Game/Scenes/end_layer.tscn" id="8_lbinj"]
+[ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="12_cqmfx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bhni0"]
 vertices = PackedVector2Array(506.383, 318.859, 314.594, 316.141, 319.43, 234, 509.609, 234)
@@ -14,6 +19,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(310, 224, 304, 326, 516, 329, 520, 224)])
 
 [node name="world_6" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_f58sj")]
+position = Vector2(378, 91)
+
+[node name="Brother" parent="." instance=ExtResource("2_0p5r0")]
+position = Vector2(429, 101)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -76,7 +87,7 @@ position = Vector2(228, 322)
 
 [node name="Shooter_enemy" parent="." instance=ExtResource("5_1aafb")]
 position = Vector2(800, 284)
-dir = Vector2(1, 0)
+dir = Vector2(-1, 0)
 
 [node name="Shooter_enemy2" parent="." instance=ExtResource("5_1aafb")]
 position = Vector2(731, 61)
@@ -85,11 +96,28 @@ dir = Vector2(0, 1)
 [node name="Herb" parent="." instance=ExtResource("6_0d0w2")]
 position = Vector2(467, 133)
 
+[node name="Herbfinal" parent="." instance=ExtResource("6_0d0w2")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(414, 437)
+collision_layer = 8192
+collision_mask = 8192
+script = ExtResource("7_1txj6")
+
+[node name="CollisionShape2D" parent="Herbfinal" index="0"]
+visible = true
+
 [node name="Shooter_yello" parent="." instance=ExtResource("7_1l332")]
 position = Vector2(320, 244)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
+[node name="End_layer" parent="." instance=ExtResource("8_lbinj")]
+
+[node name="Brother_marker" parent="." instance=ExtResource("12_cqmfx")]
+
+[connection signal="area_entered" from="Herbfinal" to="Herbfinal" method="_on_area_entered"]
+
 [editable path="PuzzleDoor"]
 [editable path="PuzzleDoor2"]
 [editable path="PuzzleDoor3"]
+[editable path="Herbfinal"]

@@ -19,3 +19,5 @@ signal on_enemy_hurt()
 signal change_brother_health(amount: float)
 
 signal save_brother_health(brother_health: float)
+
+signal on_transition()

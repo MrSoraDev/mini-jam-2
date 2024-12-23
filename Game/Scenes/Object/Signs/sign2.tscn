@@ -127,6 +127,7 @@ offset_bottom = -32.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_541m2")
 
 [node name="Label" type="Label" parent="Panel"]
+z_index = 1
 layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0

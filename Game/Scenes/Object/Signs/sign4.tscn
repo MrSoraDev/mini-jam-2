@@ -112,6 +112,7 @@ script = ExtResource("1_onw6h")
 texture = ExtResource("2_87kx0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CircleShape2D_u0kew")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

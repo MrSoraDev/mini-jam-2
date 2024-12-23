@@ -6,7 +6,7 @@ var brother = null
 var brother_max_health: float = 1000.0
 var brother_health: float
 var venon_force: float = 0.1
-
+var whistle_cd = 20
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	brother_health = brother_max_health

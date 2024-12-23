@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bcn2yta8b33n0"]
+[gd_scene load_steps=61 format=3 uid="uid://bcn2yta8b33n0"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Brother/brother.gd" id="1_orvyp"]
 [ext_resource type="Script" path="res://Game/Scripts/StateMachine/node_state_machine.gd" id="2_grepv"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://qhipb5dwt2qx" path="res://Assets/Ui/HP_bar_3.png" id="11_ipv1n"]
 [ext_resource type="Texture2D" uid="uid://1xk0cc5ju6li" path="res://Assets/Ui/HP_bar.png" id="11_udsya"]
 [ext_resource type="Texture2D" uid="uid://h1psx00fh2sw" path="res://Assets/Ui/HP_bar_2.png" id="13_krcrd"]
+[ext_resource type="Texture2D" uid="uid://ct60j5218lar1" path="res://Assets/Player/whisper_timer.png" id="14_k85jd"]
+[ext_resource type="Script" path="res://Game/Scenes/Brother/texture_button.gd" id="15_0tvhq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5pb2d"]
 radius = 8.0
@@ -368,6 +370,14 @@ _data = {
 "shinking": SubResource("Animation_mp8fa")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jwfu"]
+atlas = ExtResource("14_k85jd")
+region = Rect2(9, 9, 31, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l5am"]
+atlas = ExtResource("14_k85jd")
+region = Rect2(57, 9, 31, 29)
+
 [node name="Brother" type="CharacterBody2D"]
 collision_layer = 1026
 collision_mask = 1027
@@ -486,6 +496,20 @@ value = 14.0
 libraries = {
 "": SubResource("AnimationLibrary_j0xud")
 }
+
+[node name="TextureButton" type="TextureProgressBar" parent="."]
+offset_left = 26.0
+offset_top = -26.0
+offset_right = 66.0
+offset_bottom = 14.0
+scale = Vector2(0.5, 0.5)
+max_value = 20.0
+value = 20.0
+fill_mode = 4
+texture_under = SubResource("AtlasTexture_0jwfu")
+texture_progress = SubResource("AtlasTexture_8l5am")
+tint_progress = Color(0.98275, 6.08854e-06, 1.54018e-06, 1)
+script = ExtResource("15_0tvhq")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Dead" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="StateMachine/Falling/FallingTimer" to="StateMachine/Falling" method="_on_falling_timer_timeout"]

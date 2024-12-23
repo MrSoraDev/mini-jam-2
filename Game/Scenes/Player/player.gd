@@ -30,14 +30,15 @@ func _ready() -> void:
 	GameManager.set_player_jogavel(self)
 	stun.hide()
 	whistle_indicatior.hide()
-
+	whistle_timer.wait_time = GameManager.whistle_cd
+	
 func _process(delta: float) -> void:
 	pass
 		
 
 func _physics_process(delta: float) -> void:
 
-	print_debug(hurt)
+	#print_debug(hurt)
 	if Input.is_action_just_pressed("call") and can_whistle == true:
 		timer.start()
 		whistle_indicatior.show()
@@ -119,3 +120,9 @@ func _on_whistle_timer_timeout() -> void:
 
 func _on_timer_timeout() -> void:
 	whistle_indicatior.hide()
+	
+func return_whistle_timer() -> float:
+	if can_whistle == true:
+		return GameManager.whistle_cd #é o tempo de espera maximo
+	else:
+		return whistle_timer.time_left	

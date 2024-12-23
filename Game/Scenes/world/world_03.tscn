@@ -26,7 +26,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(389, 59, 386, -72, 562,
 [node name="world_03" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("8_au1yn")]
-z_index = 1
 
 [node name="Brother" parent="." instance=ExtResource("9_bxj1g")]
 z_index = 1

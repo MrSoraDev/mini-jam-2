@@ -1,14 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvtx8hxgd5vku"]
+[gd_scene load_steps=9 format=3 uid="uid://bvtx8hxgd5vku"]
 
 [ext_resource type="Script" path="res://canvas_layer.gd" id="1_pe8er"]
 [ext_resource type="Texture2D" uid="uid://dhljvn6ppvxc5" path="res://Assets/Endscene/00_0_-_Copy.png" id="2_mjgxi"]
 [ext_resource type="Texture2D" uid="uid://dmsyjtst6a1ri" path="res://Assets/Endscene/sora.png" id="3_586kc"]
 [ext_resource type="Texture2D" uid="uid://cywyximyr12r8" path="res://Assets/Endscene/scaler_scaled_65x_pngcrushed.png" id="4_kohsp"]
+[ext_resource type="Texture2D" uid="uid://euq4c1kwyul7" path="res://Assets/Endscene/ending.png" id="5_k1tis"]
+
+[sub_resource type="Animation" id="Animation_8w43h"]
+resource_name = "end_scene"
+length = 6.66668
+step = 0.166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ending:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333, 1, 1.16667, 1.33333, 1.5, 1.66667, 1.83333, 2, 2.16667, 2.33333, 2.5, 2.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_8p13j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ending:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ep3e1"]
+_data = {
+"RESET": SubResource("Animation_8p13j"),
+"end_scene": SubResource("Animation_8w43h")
+}
 
 [node name="End_layer" type="CanvasLayer"]
 script = ExtResource("1_pe8er")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ep3e1")
+}
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 544.0
@@ -52,5 +94,11 @@ texture = ExtResource("3_586kc")
 position = Vector2(585, 1938)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_kohsp")
+
+[node name="ending" type="Sprite2D" parent="."]
+position = Vector2(572, 274)
+scale = Vector2(17, 17)
+texture = ExtResource("5_k1tis")
+hframes = 17
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -40,7 +40,6 @@ path_desired_distance = 10.0
 navigation_layers = 2
 path_postprocessing = 1
 avoidance_enabled = true
-debug_enabled = true
 
 [node name="Hurt_box" type="Area2D" parent="."]
 collision_layer = 128

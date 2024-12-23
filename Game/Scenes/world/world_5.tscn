@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign8.tscn" id="14_lia0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbpr0"]
-size = Vector2(84, 41)
+size = Vector2(29, 26.5)
 
 [node name="world_5" type="Node2D"]
 
@@ -176,7 +176,7 @@ position = Vector2(599, 778)
 go_to_scene = "world6"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ChangeScene"]
-position = Vector2(8, 6.5)
+position = Vector2(-2.5, 0.25)
 shape = SubResource("RectangleShape2D_qbpr0")
 
 [editable path="PuzzleDoor"]

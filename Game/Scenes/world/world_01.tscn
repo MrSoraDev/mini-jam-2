@@ -39,7 +39,6 @@ will have some seconds of
  patience to follow you"
 
 [node name="Sign3" parent="Signs" instance=ExtResource("3_em62h")]
-z_index = 1
 position = Vector2(46, 134)
 texto = "Oh no! Your brother is sick! Find the mythical herb so he can be cured"
 
@@ -49,17 +48,14 @@ position = Vector2(44, 38)
 texto = "It seems that even when he is sick he is still impatient."
 
 [node name="Sign5" parent="Signs" instance=ExtResource("5_j128l")]
-z_index = 1
 position = Vector2(44, -45)
 texto = "Take normal herbs and give them to him to delay the illness"
 
 [node name="Sign6" parent="Signs" instance=ExtResource("6_uvr1x")]
-z_index = 1
 position = Vector2(757, -375)
 texto = "Press the right mouse button to block and  guide your brother"
 
 [node name="Sign7" parent="Signs" instance=ExtResource("7_u7g0q")]
-z_index = 1
 position = Vector2(826, -376)
 texto = "Press the left mouse button to attack the enemies"
 

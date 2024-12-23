@@ -168,8 +168,8 @@ hframes = 5
 [node name="Panel" type="Panel" parent="."]
 offset_left = 13.0
 offset_top = -78.0
-offset_right = 41.0
-offset_bottom = -57.0
+offset_right = 143.0
+offset_bottom = -24.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_541m2")
 
 [node name="Label" type="Label" parent="Panel"]

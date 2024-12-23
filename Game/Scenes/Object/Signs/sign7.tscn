@@ -104,6 +104,7 @@ region_rect = Rect2(1, 2, 46, 26)
 modulate_color = Color(1, 1, 1, 0)
 
 [node name="Sign2" type="Area2D"]
+z_index = 7
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_t884u")

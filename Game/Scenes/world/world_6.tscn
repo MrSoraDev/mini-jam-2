@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bfoofqgwvy7rk"]
+[gd_scene load_steps=16 format=4 uid="uid://bfoofqgwvy7rk"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="1_f58sj"]
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_vydoo"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bun83iok8bxh3" path="res://Game/Scenes/Object/door/Puzzle_door.tscn" id="2_plihy"]
 [ext_resource type="PackedScene" uid="uid://cfwul70ce22l1" path="res://Game/Scenes/Enemys/ufo.tscn" id="3_2rm42"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="4_nt86h"]
-[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_1aafb"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_1aafb"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="6_0d0w2"]
-[ext_resource type="PackedScene" uid="uid://s5yyvldpkcja" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="7_1l332"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="7_1l332"]
 [ext_resource type="Script" path="res://Game/Scenes/Object/Herbs/herb.gd" id="7_1txj6"]
+[ext_resource type="PackedScene" uid="uid://w2xdwypagml8" path="res://Game/Scenes/transition/ufo_transition_screen.tscn" id="7_h3tny"]
+[ext_resource type="PackedScene" uid="uid://bojmkqtmt2dtk" path="res://Game/Scenes/UI/game_over_screen.tscn" id="8_5eitt"]
 [ext_resource type="PackedScene" uid="uid://bvtx8hxgd5vku" path="res://Game/Scenes/end_layer.tscn" id="8_lbinj"]
 [ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="12_cqmfx"]
 
@@ -114,6 +116,12 @@ position = Vector2(320, 244)
 [node name="End_layer" parent="." instance=ExtResource("8_lbinj")]
 
 [node name="Brother_marker" parent="." instance=ExtResource("12_cqmfx")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UfoTransitionScreen" parent="CanvasLayer" instance=ExtResource("7_h3tny")]
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("8_5eitt")]
 
 [connection signal="area_entered" from="Herbfinal" to="Herbfinal" method="_on_area_entered"]
 

@@ -4,19 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://bq1035nja2wqe" path="res://Game/Scenes/Object/Signs/sign2.tscn" id="2_3y1ml"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_hfhab"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_24pfk"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign3.tscn" id="3_em62h"]
+[ext_resource type="PackedScene" uid="uid://4pv3klbd2647" path="res://Game/Scenes/Object/Signs/sign3.tscn" id="3_em62h"]
 [ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="4_qtpuy"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign4.tscn" id="4_xl6w3"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign5.tscn" id="5_j128l"]
-[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
+[ext_resource type="PackedScene" uid="uid://ckdbu1eqyync7" path="res://Game/Scenes/Object/Signs/sign4.tscn" id="4_xl6w3"]
+[ext_resource type="PackedScene" uid="uid://biy04gvrlcbeg" path="res://Game/Scenes/Object/Signs/sign5.tscn" id="5_j128l"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="6_id34t"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign6.tscn" id="6_uvr1x"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Object/Signs/sign7.tscn" id="7_u7g0q"]
+[ext_resource type="PackedScene" uid="uid://q6vhjeyx76vw" path="res://Game/Scenes/Object/Signs/sign6.tscn" id="6_uvr1x"]
+[ext_resource type="PackedScene" uid="uid://46egyju020op" path="res://Game/Scenes/Object/Signs/sign7.tscn" id="7_u7g0q"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="7_y813p"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="8_mf0bw"]
 [ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="9_8vt40"]
 [ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="10_nhgsm"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_soqr1"]
+[ext_resource type="PackedScene" uid="uid://bojmkqtmt2dtk" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_soqr1"]
 [ext_resource type="PackedScene" uid="uid://w2xdwypagml8" path="res://Game/Scenes/transition/ufo_transition_screen.tscn" id="13_xixjq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8gl"]
@@ -39,7 +39,6 @@ will have some seconds of
  patience to follow you"
 
 [node name="Sign3" parent="Signs" instance=ExtResource("3_em62h")]
-z_index = 1
 position = Vector2(46, 134)
 texto = "Oh no! Your brother is sick! Find the mythical herb so he can be cured"
 
@@ -49,17 +48,14 @@ position = Vector2(44, 38)
 texto = "It seems that even when he is sick he is still impatient."
 
 [node name="Sign5" parent="Signs" instance=ExtResource("5_j128l")]
-z_index = 1
 position = Vector2(44, -45)
 texto = "Take normal herbs and give them to him to delay the illness"
 
 [node name="Sign6" parent="Signs" instance=ExtResource("6_uvr1x")]
-z_index = 1
 position = Vector2(757, -375)
 texto = "Press the right mouse button to block and  guide your brother"
 
 [node name="Sign7" parent="Signs" instance=ExtResource("7_u7g0q")]
-z_index = 1
 position = Vector2(826, -376)
 texto = "Press the left mouse button to attack the enemies"
 

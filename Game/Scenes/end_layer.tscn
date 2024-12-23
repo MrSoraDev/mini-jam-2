@@ -8,12 +8,12 @@
 
 [sub_resource type="Animation" id="Animation_8w43h"]
 resource_name = "end_scene"
-length = 6.66668
+length = 13.3334
 step = 0.166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ending:frame")
+tracks/0/path = NodePath("Node2D/ending:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,13 +22,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 16]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.5, 13.3333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2170)]
+}
 
 [sub_resource type="Animation" id="Animation_8p13j"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ending:frame")
+tracks/0/path = NodePath("Node2D/ending:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,6 +48,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ep3e1"]
@@ -52,52 +76,68 @@ libraries = {
 "": SubResource("AnimationLibrary_ep3e1")
 }
 
-[node name="Label2" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.0906, 76.5066)
+color = Color(0.137255, 0.223529, 0.435294, 1)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Label2" type="Label" parent="Node2D"]
 offset_left = 544.0
 offset_top = 663.0
 offset_right = 788.0
 offset_bottom = 686.0
 text = "Made by:"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label5" type="Label" parent="Node2D"]
+offset_left = 474.0
+offset_top = 2432.31
+offset_right = 894.0
+offset_bottom = 2852.31
+scale = Vector2(3.7311, 5.14879)
+text = "The end"
+
+[node name="Label" type="Label" parent="Node2D"]
 offset_left = 460.0
 offset_top = 736.0
-offset_right = 704.0
+offset_right = 714.0
 offset_bottom = 759.0
 text = "Art by : Matheus Rufino - mattrdl"
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="Node2D"]
 offset_left = 460.0
 offset_top = 1265.0
 offset_right = 704.0
 offset_bottom = 1288.0
 text = "Made by: MrSoraDev"
 
-[node name="Label4" type="Label" parent="."]
+[node name="Label4" type="Label" parent="Node2D"]
 offset_left = 460.0
 offset_top = 1746.0
 offset_right = 704.0
 offset_bottom = 1769.0
 text = "Made by: Yris"
 
-[node name="000-Copy" type="Sprite2D" parent="."]
+[node name="000-Copy" type="Sprite2D" parent="Node2D"]
 position = Vector2(583, 927)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_mjgxi")
 
-[node name="Sora" type="Sprite2D" parent="."]
+[node name="Sora" type="Sprite2D" parent="Node2D"]
 position = Vector2(572, 1478)
 scale = Vector2(4, 4)
 texture = ExtResource("3_586kc")
 
-[node name="ScalerScaled65xPngcrushed" type="Sprite2D" parent="."]
+[node name="ScalerScaled65xPngcrushed" type="Sprite2D" parent="Node2D"]
 position = Vector2(585, 1938)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_kohsp")
 
-[node name="ending" type="Sprite2D" parent="."]
-position = Vector2(572, 274)
-scale = Vector2(17, 17)
+[node name="ending" type="Sprite2D" parent="Node2D"]
+position = Vector2(572, 426)
+scale = Vector2(10, 10)
 texture = ExtResource("5_k1tis")
 hframes = 17
 

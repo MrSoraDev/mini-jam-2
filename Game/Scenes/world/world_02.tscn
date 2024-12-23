@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://dap76d47s5xkw"]
 
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_nw842"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="2_qljws"]
+[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="2_qljws"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="3_55gcy"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="4_wl5dq"]
 [ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="5_u5e46"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="8_78po2"]
 [ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="9_fl1a0"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="10_jiuv2"]
-[ext_resource type="PackedScene" uid="uid://bojmkqtmt2dtk" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_kgget"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_kgget"]
 [ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="12_3cljh"]
 [ext_resource type="PackedScene" uid="uid://w2xdwypagml8" path="res://Game/Scenes/transition/ufo_transition_screen.tscn" id="12_gdqgr"]
 

@@ -147,7 +147,7 @@ position = Vector2(-40, 324)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mk34s")
 autoplay = "default"
-frame_progress = 0.317322
+frame_progress = 0.704605
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

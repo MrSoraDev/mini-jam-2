@@ -24,7 +24,9 @@ func _process(delta: float) -> void:
 func get_brother_max_health() -> float:
 	return brother_max_health
 
-
+func reset_health() -> void:
+	brother_health = brother_max_health
+	
 func get_brother_health() -> float:
 	return brother_health
 

@@ -584,6 +584,7 @@ _data = {
 radius = 11.4018
 
 [node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
+z_index = 1
 collision_layer = 2
 script = ExtResource("1_3i46q")
 

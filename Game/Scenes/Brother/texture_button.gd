@@ -21,4 +21,4 @@ func _process(delta: float) -> void:
 		tint_progress = ("63cc00")
 		value = conta
 	#value = abs(seconds - 20)
-	print_debug(conta)
+	#print_debug(conta)

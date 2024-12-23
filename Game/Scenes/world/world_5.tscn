@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d1nmt61f5g6tn"]
+[gd_scene load_steps=15 format=4 uid="uid://cjvolvr4gyvhu"]
 
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="1_g1heb"]
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_vwr15"]
@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bun83iok8bxh3" path="res://Game/Scenes/Object/door/Puzzle_door.tscn" id="2_g1v4n"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="2_nv4t4"]
 [ext_resource type="PackedScene" uid="uid://bs4tpgkps66ti" path="res://Game/Scenes/Enemys/torrada.tscn" id="3_10jaw"]
-[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="7_21gpm"]
-[ext_resource type="PackedScene" uid="uid://s5yyvldpkcja" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="8_rd3qt"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="7_21gpm"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_yellow.tscn" id="8_rd3qt"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="9_j0dcd"]
 [ext_resource type="PackedScene" uid="uid://c045mi8spuru2" path="res://Game/Scenes/Enemys/amassador.tscn" id="10_a2ix0"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="12_602yj"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/UI/game_over_screen.tscn" id="13_k4d7u"]
+[ext_resource type="PackedScene" uid="uid://bojmkqtmt2dtk" path="res://Game/Scenes/UI/game_over_screen.tscn" id="13_k4d7u"]
 [ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="14_3v24c"]
+[ext_resource type="PackedScene" uid="uid://cml6wae6m2ek6" path="res://Game/Scenes/Object/Signs/sign8.tscn" id="14_lia0y"]
 
 [node name="world_5" type="Node2D"]
 
@@ -150,6 +151,10 @@ position = Vector2(975, 429)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_3v24c")
 autoplay = true
+
+[node name="Sign2" parent="." instance=ExtResource("14_lia0y")]
+position = Vector2(779, 901)
+texto = "Use the shield to push your brother to the switch"
 
 [editable path="PuzzleDoor"]
 [editable path="PuzzleDoor3"]

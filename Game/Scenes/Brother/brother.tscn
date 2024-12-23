@@ -470,12 +470,14 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_rxwr1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 7
 position = Vector2(-34, -19)
 texture = ExtResource("11_ipv1n")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 7
 offset_left = -26.0
 offset_top = -26.0
 offset_right = 78.0
@@ -496,6 +498,7 @@ libraries = {
 }
 
 [node name="TextureButton" type="TextureProgressBar" parent="."]
+z_index = 7
 offset_left = 26.0
 offset_top = -26.0
 offset_right = 66.0

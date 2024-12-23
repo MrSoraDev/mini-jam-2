@@ -63,6 +63,10 @@ shape = SubResource("CircleShape2D_2udwk")
 position = Vector2(-3, 0)
 target_position = Vector2(6, 0)
 
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(0, 3)
+target_position = Vector2(0, -6)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_wusbi")

@@ -4,6 +4,7 @@ extends CharacterBody2D
 var vectordir = Vector2.ZERO
 var speed = 160
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
+@onready var ray_cast_2d_2: RayCast2D = $RayCast2D2
 
 func _ready() -> void:
 	animation_player.play("rolling")
@@ -16,7 +17,8 @@ func _physics_process(delta: float) -> void:
 	velocity = vectordir * speed
 	if ray_cast_2d.is_colliding() == true:
 		dead()
-	
+	if ray_cast_2d_2.is_colliding() == true:
+		dead()
 	move_and_slide()
 
 

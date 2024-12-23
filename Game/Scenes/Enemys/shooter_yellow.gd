@@ -6,20 +6,24 @@ extends StaticBody2D
 const bullet = preload("res://Game/Scenes/Bullets/bullet_yellow.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var actived = false
-
+var shoot = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start()
+	timer.start(timing_bullet)
 
 func _process(delta: float) -> void:
 	if actived == false:
-		timer.stop()
 		return
 	
-	if timer.paused == true:
-		timer.start(timing_bullet)
+	if shoot == true:
+		shooting()
 func _on_timer_timeout() -> void:
+	shoot = true
+
+
+func shooting():
+	shoot = false
 	animation_player.play("shoot")
 
 
@@ -31,3 +35,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	inst.global_position = self.global_position
 	get_parent().add_child(inst)
 	timer.start(timing_bullet)
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	actived = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	actived = false

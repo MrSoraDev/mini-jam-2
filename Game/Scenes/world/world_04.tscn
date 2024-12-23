@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cholpawpjb7fu"]
+[gd_scene load_steps=16 format=4 uid="uid://cholpawpjb7fu"]
 
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_2p5k2"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_8ws5n"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="9_0vrhm"]
 [ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="10_v7ywp"]
 [ext_resource type="PackedScene" uid="uid://cfwul70ce22l1" path="res://Game/Scenes/Enemys/ufo.tscn" id="11_fs5bf"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/UI/game_over_screen.tscn" id="12_fidy5"]
+[ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="13_2s1ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssf3f"]
 size = Vector2(99, 134)
@@ -78,7 +80,7 @@ position = Vector2(887, 181)
 maker = NodePath("../Marker2D")
 
 [node name="Hole9" parent="pitfalls/Node2D" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
-position = Vector2(888, 196)
+position = Vector2(887, 194)
 maker = NodePath("../Marker2D")
 
 [node name="Hole10" parent="pitfalls/Node2D" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
@@ -128,11 +130,11 @@ position = Vector2(891, 180)
 maker = NodePath("../Marker2D")
 
 [node name="Hole9" parent="pitfalls/Node2D2" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
-position = Vector2(892, 195)
+position = Vector2(891, 192)
 maker = NodePath("../Marker2D")
 
 [node name="Hole10" parent="pitfalls/Node2D2" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
-position = Vector2(892, 205)
+position = Vector2(891, 206)
 maker = NodePath("../Marker2D")
 
 [node name="Hole11" parent="pitfalls/Node2D2" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
@@ -275,6 +277,141 @@ maker = NodePath("../Marker2D")
 [node name="Marker2D" type="Marker2D" parent="pitfalls/Node2D5"]
 position = Vector2(397, 316)
 
+[node name="Node2D6" type="Node2D" parent="pitfalls"]
+
+[node name="Hole" parent="pitfalls/Node2D6" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(192, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole2" parent="pitfalls/Node2D6" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(209, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole3" parent="pitfalls/Node2D6" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(226, 171)
+maker = NodePath("../Marker2D")
+
+[node name="Hole4" parent="pitfalls/Node2D6" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(245, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole5" parent="pitfalls/Node2D6" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(262, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole6" parent="pitfalls/Node2D6" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(279, 171)
+maker = NodePath("../Marker2D")
+
+[node name="Hole7" parent="pitfalls/Node2D6" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(298, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="pitfalls/Node2D6"]
+position = Vector2(240, 149)
+
+[node name="Node2D7" type="Node2D" parent="pitfalls"]
+position = Vector2(127, 0)
+
+[node name="Hole" parent="pitfalls/Node2D7" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(192, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole2" parent="pitfalls/Node2D7" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(209, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole3" parent="pitfalls/Node2D7" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(226, 171)
+maker = NodePath("../Marker2D")
+
+[node name="Hole4" parent="pitfalls/Node2D7" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(245, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole5" parent="pitfalls/Node2D7" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(262, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole6" parent="pitfalls/Node2D7" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(279, 171)
+maker = NodePath("../Marker2D")
+
+[node name="Hole7" parent="pitfalls/Node2D7" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(298, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="pitfalls/Node2D7"]
+position = Vector2(240, 149)
+
+[node name="Node2D8" type="Node2D" parent="pitfalls"]
+position = Vector2(127, -109)
+
+[node name="Hole" parent="pitfalls/Node2D8" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(192, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole2" parent="pitfalls/Node2D8" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(209, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole3" parent="pitfalls/Node2D8" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(226, 171)
+maker = NodePath("../Marker2D")
+
+[node name="Hole4" parent="pitfalls/Node2D8" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(245, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole5" parent="pitfalls/Node2D8" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(262, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole6" parent="pitfalls/Node2D8" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(279, 171)
+maker = NodePath("../Marker2D")
+
+[node name="Hole7" parent="pitfalls/Node2D8" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(298, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="pitfalls/Node2D8"]
+position = Vector2(240, 189)
+
+[node name="Node2D9" type="Node2D" parent="pitfalls"]
+position = Vector2(3, -109)
+
+[node name="Hole" parent="pitfalls/Node2D9" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(192, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole2" parent="pitfalls/Node2D9" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(209, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole3" parent="pitfalls/Node2D9" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(226, 171)
+maker = NodePath("../Marker2D")
+
+[node name="Hole4" parent="pitfalls/Node2D9" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(245, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole5" parent="pitfalls/Node2D9" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(262, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Hole6" parent="pitfalls/Node2D9" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(279, 171)
+maker = NodePath("../Marker2D")
+
+[node name="Hole7" parent="pitfalls/Node2D9" node_paths=PackedStringArray("maker") instance=ExtResource("5_cfegs")]
+position = Vector2(298, 170)
+maker = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="pitfalls/Node2D9"]
+position = Vector2(240, 189)
+
 [node name="Shooter_yello" parent="." instance=ExtResource("6_qq40n")]
 position = Vector2(719, 142)
 
@@ -291,6 +428,7 @@ position = Vector2(861, 346)
 position = Vector2(861, 346)
 
 [node name="Herb" parent="." instance=ExtResource("8_o3dcg")]
+visible = false
 position = Vector2(829, 289)
 
 [node name="Herb3" parent="." instance=ExtResource("8_o3dcg")]
@@ -317,6 +455,14 @@ dir = Vector2(0, 1)
 position = Vector2(116, 254)
 dir = Vector2(0, 1)
 
+[node name="Shooter_enemy4" parent="." instance=ExtResource("9_0vrhm")]
+position = Vector2(166, 145)
+dir = Vector2(1, 0)
+
+[node name="Shooter_enemy5" parent="." instance=ExtResource("9_0vrhm")]
+position = Vector2(168, 74)
+dir = Vector2(1, 0)
+
 [node name="ChangeScene" parent="." instance=ExtResource("10_v7ywp")]
 position = Vector2(114, 90)
 
@@ -337,5 +483,11 @@ position = Vector2(447, 368)
 position = Vector2(-2, -2)
 navigation_polygon = SubResource("NavigationPolygon_gocrl")
 navigation_layers = 2
+
+[node name="GameOverScreen" parent="." instance=ExtResource("12_fidy5")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_2s1ui")
+autoplay = true
 
 [editable path="ChangeScene"]

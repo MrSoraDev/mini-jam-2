@@ -40,7 +40,6 @@ texture = ExtResource("1_ujavr")
 5:10/0 = 0
 5:10/0/terrain_set = 0
 5:10/0/terrain = 0
-5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 3.625, -8, 3.625, 8, -8, 8)
 5:10/0/terrains_peering_bit/right_side = 0
 5:10/0/terrains_peering_bit/bottom_right_corner = 0
 5:10/0/terrains_peering_bit/bottom_side = 0

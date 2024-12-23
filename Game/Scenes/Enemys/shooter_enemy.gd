@@ -11,9 +11,9 @@ const bullet = preload("res://Game/Scenes/Bullets/bullet_green.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start(timing_bullet)
-	if dir.y == 1:
+	if dir.y == -1:
 		anim.play("shoot_up")
-	elif dir.y == -1:
+	elif dir.y == 1:
 		anim.play("shoot_down")
 	if dir.x == 1:
 		anim.play("shoot_right")
@@ -23,9 +23,9 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if dir.y == 1:
+	if dir.y == -1:
 		anim.play("shoot_up")
-	elif dir.y == -1:
+	elif dir.y == 1:
 		anim.play("shoot_down")
 	if dir.x == 1:
 		anim.play("shoot_right")

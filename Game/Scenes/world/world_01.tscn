@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=4 uid="uid://b2w6i8k0boiul"]
+[gd_scene load_steps=13 format=4 uid="uid://b2w6i8k0boiul"]
 
 [ext_resource type="TileSet" uid="uid://b3ks7piisyh4v" path="res://Game/Scenes/world/tilemap.tres" id="1_iu76l"]
 [ext_resource type="PackedScene" uid="uid://lrv352046fas" path="res://Game/Scenes/Player/player.tscn" id="2_hfhab"]
 [ext_resource type="PackedScene" uid="uid://bcn2yta8b33n0" path="res://Game/Scenes/Brother/brother.tscn" id="3_24pfk"]
 [ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="4_qtpuy"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
+[ext_resource type="PackedScene" uid="uid://qorcd3jqedrq" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="6_id34t"]
 [ext_resource type="PackedScene" uid="uid://gg16m06v3aj0" path="res://Game/Scenes/Object/Herbs/herb.tscn" id="7_y813p"]
 [ext_resource type="PackedScene" uid="uid://cn3en7kguydmf" path="res://Game/Scenes/Enemys/hole.tscn" id="8_mf0bw"]
 [ext_resource type="PackedScene" uid="uid://ccrjsykjhke4q" path="res://Game/Scenes/components/change_scene.tscn" id="9_8vt40"]
 [ext_resource type="AudioStream" uid="uid://cmo88hvnbggyy" path="res://Assets/Sound/level_song.mp3" id="10_nhgsm"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/UI/game_over_screen.tscn" id="11_soqr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1q8gl"]
 size = Vector2(47, 99)
@@ -339,6 +340,8 @@ shape = SubResource("RectangleShape2D_1q8gl")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_nhgsm")
 autoplay = true
+
+[node name="GameOverScreen" parent="." instance=ExtResource("11_soqr1")]
 
 [editable path="hole/Hole"]
 [editable path="hole/Hole8"]

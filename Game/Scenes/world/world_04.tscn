@@ -465,6 +465,7 @@ dir = Vector2(1, 0)
 
 [node name="ChangeScene" parent="." instance=ExtResource("10_v7ywp")]
 position = Vector2(114, 90)
+go_to_scene = "world5"
 
 [node name="CollisionShape2D" parent="ChangeScene" index="0"]
 position = Vector2(9.5, 26)

@@ -5,6 +5,9 @@ var Scenes: Dictionary = {
 	"world1": preload("res://Game/Scenes/world/world_01.tscn"),
 	"world2": preload("res://Game/Scenes/world/world_02.tscn"),
 	"world3": preload("res://Game/Scenes/world/world_03.tscn"),
+	"world4": preload("res://Game/Scenes/world/world_04.tscn"),
+	"world5": preload("res://Game/Scenes/world/world_5.tscn"),
+	"world6": preload("res://Game/Scenes/world/world_6.tscn")
 }
 
 

@@ -53,10 +53,12 @@ position = Vector2(44, 38)
 texto = "It seems that even when he is sick he is still impatient."
 
 [node name="Sign5" parent="Signs" instance=ExtResource("5_j128l")]
+z_index = 1
 position = Vector2(44, -45)
 texto = "Take normal herbs and give them to him to delay the illness"
 
 [node name="Sign6" parent="Signs" instance=ExtResource("6_uvr1x")]
+z_index = 1
 position = Vector2(757, -375)
 texto = "Press the right mouse button to block and  guide your brother"
 
@@ -345,6 +347,7 @@ tile_map_data = PackedByteArray("AADm/wAAAAABAAoAAADn/wAAAAACAAoAAADm/wEAAAABAAk
 tile_set = ExtResource("1_iu76l")
 
 [node name="Player" parent="." instance=ExtResource("2_hfhab")]
+z_index = 2
 position = Vector2(79, 191)
 
 [node name="Brother" parent="." instance=ExtResource("3_24pfk")]

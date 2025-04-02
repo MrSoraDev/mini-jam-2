@@ -146,6 +146,7 @@ region_rect = Rect2(1, 2, 46, 26)
 
 [node name="Sign" type="Area2D"]
 z_index = 1
+y_sort_enabled = true
 collision_layer = 0
 collision_mask = 8
 
@@ -174,6 +175,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_541m2")
 
 [node name="Label" type="Label" parent="Panel"]
 visible = false
+z_index = 5
 layout_mode = 0
 offset_left = 19.0
 offset_top = -61.0

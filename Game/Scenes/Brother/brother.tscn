@@ -500,10 +500,9 @@ libraries = {
 [node name="TextureButton" type="TextureProgressBar" parent="."]
 z_index = 7
 offset_left = 26.0
-offset_top = -26.0
+offset_top = -33.0
 offset_right = 66.0
-offset_bottom = 14.0
-scale = Vector2(0.5, 0.5)
+offset_bottom = 7.0
 max_value = 20.0
 value = 20.0
 fill_mode = 4

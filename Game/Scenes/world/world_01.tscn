@@ -23,6 +23,7 @@
 size = Vector2(29, 31)
 
 [node name="world_01" type="Node2D"]
+y_sort_enabled = true
 
 [node name="bottom" type="TileMapLayer" parent="." groups=["navigation_polygon_source_geometry_group"]]
 z_index = -1
@@ -30,6 +31,8 @@ tile_map_data = PackedByteArray("AAD8//z/AAAGAAoAAAD8//3/AAAGAAoAAAD8//7/AAAGAAo
 tile_set = ExtResource("1_iu76l")
 
 [node name="Signs" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 
 [node name="Sign2" parent="Signs" instance=ExtResource("2_3y1ml")]
 z_index = 1
@@ -39,11 +42,13 @@ will have some seconds of
  patience to follow you"
 
 [node name="Sign3" parent="Signs" instance=ExtResource("3_em62h")]
+y_sort_enabled = true
 position = Vector2(46, 134)
 texto = "Oh no! Your brother is sick! Find the mythical herb so he can be cured"
 
 [node name="Sign4" parent="Signs" instance=ExtResource("4_xl6w3")]
 z_index = 1
+y_sort_enabled = true
 position = Vector2(44, 38)
 texto = "It seems that even when he is sick he is still impatient."
 
@@ -340,7 +345,6 @@ tile_map_data = PackedByteArray("AADm/wAAAAABAAoAAADn/wAAAAACAAoAAADm/wEAAAABAAk
 tile_set = ExtResource("1_iu76l")
 
 [node name="Player" parent="." instance=ExtResource("2_hfhab")]
-z_index = 0
 position = Vector2(79, 191)
 
 [node name="Brother" parent="." instance=ExtResource("3_24pfk")]

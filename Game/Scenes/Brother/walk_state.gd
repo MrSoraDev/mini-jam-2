@@ -3,8 +3,8 @@ extends NodeState
 @export var character: Brother
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var navigation_agent_2d: NavigationAgent2D
-@export var min_speed: float = 50
-@export var max_speed: float = 70
+@export var min_speed: float = 20
+@export var max_speed: float = 30
 
 #@onready var maker: Node2D = $"../../Brother_marker"
 
@@ -13,7 +13,7 @@ var maker: Node2D = null
 var speed: float
 
 func _ready() -> void:
-	navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
+	#navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
 	SignalManager.on_brother_hurt.connect(on_brother_hurt)
 	call_deferred("character_setup") #vai esperar um pouco antes de começar a fisica do navegation
 	
@@ -52,23 +52,31 @@ func _on_physics_process(_delta : float) -> void:
 	else:
 		character.velocity = velocity
 		character.move_and_slide()
-	
-	
-
-
-func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
+		
 	if character.falling == false and character.dead == false and character.abducted == false:
-		animated_sprite_2d.flip_h = safe_velocity.x < 0
-		character.velocity = safe_velocity
+		animated_sprite_2d.flip_h = velocity.x < 0
 		if character.velocity.y > 0:
 			animated_sprite_2d.play("walk_down")
 		
 		elif character.velocity.y < 0:
 			animated_sprite_2d.play("walk_up")
 		character.move_and_slide()
-		#else: 
-			#elif character.velocity.y < 0:
-			#animated_sprite_2d.play("walk_up")	
+	
+	
+
+
+#func on_safe_velocity_computed(safe_velocity: Vector2) -> void:
+	#print_debug("calculado velocity")
+	#if character.falling == false and character.dead == false and character.abducted == false:
+		#animated_sprite_2d.flip_h = safe_velocity.x < 0
+		#character.velocity = safe_velocity
+		#if character.velocity.y > 0:
+			#animated_sprite_2d.play("walk_down")
+		#
+		#elif character.velocity.y < 0:
+			#animated_sprite_2d.play("walk_up")
+		#character.move_and_slide()
+
 	
 func _on_next_transitions() -> void:
 	if character.dead == true:

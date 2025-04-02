@@ -63,6 +63,7 @@ position = Vector2(757, -375)
 texto = "Press the right mouse button to block and  guide your brother"
 
 [node name="Sign7" parent="Signs" instance=ExtResource("7_u7g0q")]
+z_index = 1
 position = Vector2(826, -376)
 texto = "Press the left mouse button to attack the enemies"
 

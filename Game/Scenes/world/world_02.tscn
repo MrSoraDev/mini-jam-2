@@ -382,10 +382,10 @@ autoplay = true
 [node name="UfoTransitionScreen" parent="CanvasLayer" instance=ExtResource("12_gdqgr")]
 
 [node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("11_kgget")]
-offset_left = 187.0
-offset_top = 560.0
-offset_right = 187.0
-offset_bottom = 560.0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = -1.0
+offset_bottom = -2.0
 
 [node name="Herb3" parent="." instance=ExtResource("10_jiuv2")]
 position = Vector2(377, -129)

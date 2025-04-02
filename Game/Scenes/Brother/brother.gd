@@ -70,8 +70,8 @@ func change_brother_health(amount:float) -> void:
 func on_call_pressed() -> void:
 	called = true
 
-func _on_navigation_agent_2d_navigation_finished() -> void:
-	print_debug("terminou navegaçao, mudar local")
+#func _on_navigation_agent_2d_navigation_finished() -> void:
+	#print_debug("terminou navegaçao, mudar local")
 
 
 func _on_hurt_timer_timeout() -> void:

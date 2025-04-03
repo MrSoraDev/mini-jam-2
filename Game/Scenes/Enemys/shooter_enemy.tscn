@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://qorcd3jqedrq"]
+[gd_scene load_steps=9 format=3 uid="uid://cw6wbkgd0bltf"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/shooter_enemy.gd" id="1_1xe5g"]
 [ext_resource type="Texture2D" uid="uid://dyn7rfe21bmyj" path="res://Assets/Enemy/duck-Sheet.png" id="2_5it04"]
@@ -115,7 +115,7 @@ _data = {
 "shoot_up": SubResource("Animation_q0i4t")
 }
 
-[node name="Shooter_enemy" type="StaticBody2D"]
+[node name="Shooter_enemy" type="StaticBody2D" groups=["moveables"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_1xe5g")

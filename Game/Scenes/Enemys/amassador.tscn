@@ -85,7 +85,7 @@ _data = {
 "stomp_start": SubResource("Animation_xo38r")
 }
 
-[node name="Amassador" type="CharacterBody2D"]
+[node name="Amassador" type="CharacterBody2D" groups=["moveables"]]
 script = ExtResource("1_p5885")
 y_dir = true
 

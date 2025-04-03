@@ -117,7 +117,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bine2"]
 size = Vector2(52, 25)
 
-[node name="Torrada" type="StaticBody2D"]
+[node name="Torrada" type="StaticBody2D" groups=["moveables"]]
 script = ExtResource("1_f6ata")
 
 [node name="Icon" type="Sprite2D" parent="."]

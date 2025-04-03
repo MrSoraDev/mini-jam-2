@@ -381,7 +381,7 @@ _data = {
 "death": SubResource("Animation_160m8")
 }
 
-[node name="Wolf" type="CharacterBody2D"]
+[node name="Wolf" type="CharacterBody2D" groups=["moveables"]]
 script = ExtResource("1_3c8fa")
 
 [node name="Shadow" type="Sprite2D" parent="."]

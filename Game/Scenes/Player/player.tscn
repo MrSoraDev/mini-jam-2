@@ -583,7 +583,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_1mnbf"]
 radius = 11.4018
 
-[node name="Player" type="CharacterBody2D" groups=["navigation_polygon_source_geometry_group", "player"]]
+[node name="Player" type="CharacterBody2D" groups=["moveables", "navigation_polygon_source_geometry_group", "player"]]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_3i46q")

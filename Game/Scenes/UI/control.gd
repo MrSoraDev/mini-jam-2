@@ -17,3 +17,6 @@ func _on_button_pressed() -> void:
 
 func on_hud_game_over() -> void:
 	show()
+	var moveables = get_tree().get_nodes_in_group("moveables")
+	for moveable in moveables:
+		moveable.set_physics_process(false)

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://gxynls3vvkon" path="res://Game/Scenes/Brother/brother_marker.tscn" id="4_qtpuy"]
 [ext_resource type="PackedScene" uid="uid://ckdbu1eqyync7" path="res://Game/Scenes/Object/Signs/sign4.tscn" id="4_xl6w3"]
 [ext_resource type="PackedScene" uid="uid://biy04gvrlcbeg" path="res://Game/Scenes/Object/Signs/sign5.tscn" id="5_j128l"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
+[ext_resource type="PackedScene" uid="uid://cw6wbkgd0bltf" path="res://Game/Scenes/Enemys/shooter_enemy.tscn" id="5_tqc2l"]
 [ext_resource type="PackedScene" uid="uid://77o3j4d7qiif" path="res://Game/Scenes/Enemys/wolf.tscn" id="6_id34t"]
 [ext_resource type="PackedScene" uid="uid://q6vhjeyx76vw" path="res://Game/Scenes/Object/Signs/sign6.tscn" id="6_uvr1x"]
 [ext_resource type="PackedScene" uid="uid://46egyju020op" path="res://Game/Scenes/Object/Signs/sign7.tscn" id="7_u7g0q"]
@@ -37,9 +37,7 @@ y_sort_enabled = true
 [node name="Sign2" parent="Signs" instance=ExtResource("2_3y1ml")]
 z_index = 1
 position = Vector2(177, -331)
-texto = "If you press E your brother
-will have some seconds of
- patience to follow you"
+texto = "If you press E your brother will have some seconds of  patience to follow you"
 
 [node name="Sign3" parent="Signs" instance=ExtResource("3_em62h")]
 y_sort_enabled = true

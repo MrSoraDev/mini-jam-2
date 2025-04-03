@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dugljdma8imtv"]
+[gd_scene load_steps=21 format=3 uid="uid://cnf3kb0lavrrr"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/wolf.gd" id="1_0fm6o"]
 [ext_resource type="Texture2D" uid="uid://d4dyke5ucx8pt" path="res://Assets/shadow.png" id="2_tkfhb"]
@@ -368,7 +368,7 @@ _data = {
 "death": SubResource("Animation_v58hh")
 }
 
-[node name="Corvo" type="CharacterBody2D"]
+[node name="Corvo" type="CharacterBody2D" groups=["moveables"]]
 collision_layer = 0
 script = ExtResource("1_0fm6o")
 

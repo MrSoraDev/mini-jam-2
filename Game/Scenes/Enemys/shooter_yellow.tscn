@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://s5yyvldpkcja"]
+[gd_scene load_steps=7 format=3 uid="uid://boertqs8ugfb5"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/shooter_yellow.gd" id="2_6y0ad"]
 [ext_resource type="Texture2D" uid="uid://dyn7rfe21bmyj" path="res://Assets/Enemy/duck-Sheet.png" id="2_i42jo"]
@@ -42,7 +42,7 @@ _data = {
 "shoot": SubResource("Animation_olesy")
 }
 
-[node name="Shooter_yello" type="StaticBody2D"]
+[node name="Shooter_yello" type="StaticBody2D" groups=["player"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("2_6y0ad")

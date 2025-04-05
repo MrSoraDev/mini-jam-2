@@ -15,10 +15,8 @@ func _process(delta: float) -> void:
 	seconds = player.return_whistle_timer()
 	conta = abs(seconds - GameManager.whistle_cd)
 	if conta == GameManager.whistle_cd:
-		tint_progress = ("00b6ca")
 		value = GameManager.whistle_cd
 	elif conta != 0:
-		tint_progress = ("63cc00")
 		value = conta
 	#value = abs(seconds - 20)
 	#print_debug(conta)

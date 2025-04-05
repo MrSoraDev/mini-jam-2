@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 	
-	
 	if y_dir == true:
 		velocity.y = speed * dir
 	else:
@@ -33,21 +32,15 @@ func change_dir():
 	animation_player.play("stomp_end")
 	timer.start(move_wait_timer)
 	dir = dir * -1
-	icon.scale.y = 4 * dir
-	if dir == 1:
-		icon.position.y = -7
-	else:
-		icon.position.y = 7
 
 
 func _ready() -> void:
 	timer.start(start_timer)
 	raycasts.y_mode = y_dir
 	raycasts.wait_timer = move_wait_timer + 0.5
-	if speed < 0:
-		icon.flip_v = true
+
+
+
 func _on_timer_timeout() -> void:
-	animation_player.play("stomp_start")
-	await animation_player.animation_finished
 	animation_player.play("stomp_mid")
 	move = true

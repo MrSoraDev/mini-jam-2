@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c045mi8spuru2"]
 
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/amassador.gd" id="1_p5885"]
-[ext_resource type="Texture2D" uid="uid://dalwdn8frbp8w" path="res://Assets/Enemy/brick_block-Sheet.png" id="2_yknwv"]
+[ext_resource type="Texture2D" uid="uid://bsgo86dupebci" path="res://Assets/Enemy/saw.png" id="2_18g1d"]
 [ext_resource type="Script" path="res://Game/Scenes/Enemys/raycasts.gd" id="3_yulgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxfym"]
@@ -36,15 +36,15 @@ tracks/0/path = NodePath("Icon:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8, 9, 10, 8]
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_wkhm5"]
 resource_name = "stomp_mid"
-length = 0.0833417
+length = 0.4
 loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
@@ -54,10 +54,10 @@ tracks/0/path = NodePath("Icon:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_xo38r"]
@@ -92,8 +92,8 @@ y_dir = true
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
 scale = Vector2(4, 4)
-texture = ExtResource("2_yknwv")
-hframes = 12
+texture = ExtResource("2_18g1d")
+hframes = 5
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

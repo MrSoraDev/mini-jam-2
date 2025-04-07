@@ -122,6 +122,7 @@ libraries = {
 }
 
 [node name="Panel" type="Panel" parent="."]
+z_index = 5
 offset_left = 16.0
 offset_top = -98.0
 offset_right = 187.0
